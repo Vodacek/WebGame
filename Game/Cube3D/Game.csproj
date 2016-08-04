@@ -64,7 +64,6 @@
       <HintPath>..\packages\Bridge.WebGL.1.7.2\lib\net40\Bridge.WebGL.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
