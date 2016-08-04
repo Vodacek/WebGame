@@ -9,6 +9,7 @@ namespace Cube3D.Game
     public class Player
     {
         public string Name { get; private set; }
+        public Inventory Inventory { get; }
 
         public Player(string playerName)
         {
