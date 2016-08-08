@@ -7,8 +7,8 @@
     <ProjectGuid>{58795DDA-473E-4357-A204-B8C11E58E1EF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cube3D</RootNamespace>
-    <AssemblyName>Cube3D</AssemblyName>
+    <RootNamespace>Game3D</RootNamespace>
+    <AssemblyName>Game3D</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <NuGetPackageImportStamp>f64f99cb</NuGetPackageImportStamp>
   </PropertyGroup>
@@ -45,10 +45,16 @@
     <Compile Include="Game\Player.cs" />
     <Compile Include="GLMatrix.cs" />
     <Compile Include="App.cs" />
-    <Compile Include="Helpers\Float2.cs" />
+    <Compile Include="Helpers\Vector3.cs" />
+    <Compile Include="Helpers\Vector2.cs" />
     <Compile Include="Helpers\Pathfinder.cs" />
     <Compile Include="Helpers\Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rendering\Animation.cs" />
+    <Compile Include="Rendering\Camera.cs" />
+    <Compile Include="Rendering\IDrawable.cs" />
+    <Compile Include="Rendering\Model.cs" />
+    <Compile Include="Rendering\Sprite.cs" />
     <Compile Include="Test.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +70,7 @@
       <HintPath>..\packages\Bridge.WebGL.1.7.2\lib\net40\Bridge.WebGL.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

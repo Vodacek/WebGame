@@ -5,7 +5,7 @@ using Bridge.WebGL;
 using System;
 using System.Collections.Generic;
 
-namespace Cube3D
+namespace Game3D
 {
     public class Cube
     {
