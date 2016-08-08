@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 
-namespace Cube3D.Game
+namespace Game3D.Game
 {
     /// <summary>
     /// Inventory class

@@ -1,6 +1,6 @@
 ﻿//using System.Collections.Generic;
 
-//namespace Cube3D.Helpers
+//namespace Game3D.Helpers
 //{
 
 //    /// <summary>

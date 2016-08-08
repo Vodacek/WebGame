@@ -1,4 +1,4 @@
-﻿namespace Cube3D.Helpers
+﻿namespace Game3D.Helpers
 {
     /// <summary>
     /// Simple integer point class

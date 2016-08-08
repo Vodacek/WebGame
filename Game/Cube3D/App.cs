@@ -3,7 +3,7 @@ using Bridge.Html5;
 using Bridge.WebGL;
 using System;
 
-namespace Cube3D
+namespace Game3D
 {
     public class App
     {

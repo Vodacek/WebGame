@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cube3D.Game
+namespace Game3D.Game
 {
     public class GameObject
     {
