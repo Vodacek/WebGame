@@ -45,12 +45,14 @@
     <Compile Include="Game\Player.cs" />
     <Compile Include="GLMatrix.cs" />
     <Compile Include="App.cs" />
+    <Compile Include="Helpers\RectangleF.cs" />
     <Compile Include="Helpers\Vector3.cs" />
     <Compile Include="Helpers\Vector2.cs" />
     <Compile Include="Helpers\Pathfinder.cs" />
     <Compile Include="Helpers\Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rendering\Animation.cs" />
+    <Compile Include="Rendering\AnimationType.cs" />
     <Compile Include="Rendering\Camera.cs" />
     <Compile Include="Rendering\IDrawable.cs" />
     <Compile Include="Rendering\Model.cs" />
