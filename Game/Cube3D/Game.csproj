@@ -40,8 +40,8 @@
     <Compile Include="Game\Game.cs" />
     <Compile Include="Game\GameObject.cs" />
     <Compile Include="Game\Inventory.cs" />
-    <Compile Include="Game\Item.cs" />
-    <Compile Include="Game\Monster.cs" />
+    <Compile Include="Game\ItemGameObject.cs" />
+    <Compile Include="Game\ActorGameObject.cs" />
     <Compile Include="Game\Player.cs" />
     <Compile Include="GLMatrix.cs" />
     <Compile Include="App.cs" />
