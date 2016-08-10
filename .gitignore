@@ -1,3 +1,9 @@
 *temp*
 *csproj.FileListAbsolute.txt
 Game/packages/
+Game/.vs/Cube3D/v14/.suo
+*.config
+*.suo
+*.cache
+*.dll
+*.pdb

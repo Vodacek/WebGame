@@ -15,7 +15,7 @@ namespace Game3D.Game
         /// <summary>
         /// List of all items in inventory
         /// </summary>
-        public List<GameObject> Items { get; } = new List<GameObject>();
+        public List<ItemGameObject> Items { get; } = new List<ItemGameObject>();
 
         /// <summary>
         /// Gold amount
@@ -80,7 +80,7 @@ namespace Game3D.Game
         /// Drops item from inventory.
         /// </summary>
         /// <param name="obj">Item to drop</param>
-        public void DropItem(GameObject obj)
+        public void DropItem(ItemGameObject obj)
         {
             this.Items.Remove(obj);
         }

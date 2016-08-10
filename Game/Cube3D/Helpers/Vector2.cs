@@ -68,6 +68,22 @@
         }
 
         /// <summary>
+        /// operator *
+        /// </summary>
+        public static Vector2 operator *(Vector2 a, float b)
+        {
+            return new Vector2(a.X * b, a.Y * b);
+        }
+
+        /// <summary>
+        /// operator /
+        /// </summary>
+        public static Vector2 operator /(Vector2 a, float b)
+        {
+            return new Vector2(a.X / b, a.Y / b);
+        }
+
+        /// <summary>
         /// operator -
         /// </summary>
         public static Vector2 operator -(Vector2 a, Vector2 b)
@@ -75,6 +91,12 @@
             return new Vector2(a.X - b.X, a.Y - b.Y);
         }
 
+        /// <summary>
+        /// operator equals
+        /// </summary>
+        /// <param name="a">vector a</param>
+        /// <param name="b">vector b</param>
+        /// <returns>Returns whether the vectors are equal</returns>
         public static bool operator ==(Vector2 a, Vector2 b)
         {
             return a.X == b.X && a.Y == b.Y;

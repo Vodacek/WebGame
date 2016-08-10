@@ -4,7 +4,7 @@ namespace Game3D.Rendering
 {
     public interface IDrawable
     {
-        void Draw(string context, Vector3 position);
+        void Draw(string context, Vector3 position, Camera cam);
 
         Camera Camera { get; set; }
     }
