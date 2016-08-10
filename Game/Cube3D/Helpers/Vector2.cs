@@ -68,6 +68,22 @@
         }
 
         /// <summary>
+        /// operator *
+        /// </summary>
+        public static Vector2 operator *(Vector2 a, float b)
+        {
+            return new Vector2(a.X * b, a.Y * b);
+        }
+
+        /// <summary>
+        /// operator /
+        /// </summary>
+        public static Vector2 operator /(Vector2 a, float b)
+        {
+            return new Vector2(a.X / b, a.Y / b);
+        }
+
+        /// <summary>
         /// operator -
         /// </summary>
         public static Vector2 operator -(Vector2 a, Vector2 b)

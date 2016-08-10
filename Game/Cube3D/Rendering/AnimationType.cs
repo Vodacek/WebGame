@@ -6,24 +6,42 @@ namespace Game3D.Rendering
 {
     public class AnimationType
     {
+        /// <summary>
+        /// Gets or sets the Texture
+        /// </summary>
         public WebGLTexture Texture { get; set; }
-        public Vector2 TexSize { get; set; }
-        public Dictionary<string, AnimationEntry> Animations { get; set; }
 
-        public AnimationType(WebGLTexture texture, Vector2 texSize)
+        /// <summary>
+        /// gets or 
+        /// </summary>
+        public Dictionary<string, AnimationEntry> Animations { get; private set; } = new Dictionary<string, AnimationEntry>();
+
+        public AnimationType(WebGLTexture texture)
         {
             this.Texture = texture;
-            this.TexSize = texSize;
         }
 
-        public void AddAnimation(string name, Vector2 firstFrame, Vector2 frameSize, int frameCount, float speed = 1.0f)
+        /// <summary>
+        /// Adds animation entry
+        /// </summary>
+        /// <param name="name">Entry name</param>
+        /// <param name="firstFrame">Where first frame start (topleft corner)</param>
+        /// <param name="frameSize">Frame size</param>
+        /// <param name="frameCount">Frame count in animation entry</param>
+        public void AddAnimation(string name, Vector2 firstFrame, Vector2 frameSize, int frameCount)
         {
-            Animations.Add(name, new AnimationEntry(firstFrame, frameSize, frameCount, speed));
+            Animations.Add(name, new AnimationEntry(firstFrame, frameSize, frameCount));
         }
 
-        public RectangleF GetFrameCoords(string animName)
+        /// <summary>
+        /// Gets the animation frame by name and index
+        /// </summary>
+        /// <param name="animName">Animation frame</param>
+        /// <param name="index">Frame index</param>
+        /// <returns>Returns AnimationFrame</returns>
+        public AnimationFrame GetFrame(string animName, int index)
         {
-            return Animations[animName].GetFrameCoords();
+            return new AnimationFrame(Animations[animName].GetFrameRect(index), Texture);
         }
     }
 }
