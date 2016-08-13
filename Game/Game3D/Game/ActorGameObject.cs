@@ -13,8 +13,6 @@ namespace Game3D.Game
     {
         public Inventory Inventory { get; } = new Inventory();
 
-        public Inventory Inventory { get; }
-
         public float HitPoints { get; set; }
         public float MaxHitPoints { get; set; }
 
