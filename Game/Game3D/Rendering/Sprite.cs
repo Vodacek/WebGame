@@ -19,6 +19,19 @@ namespace Game3D.Rendering
             }
         }
 
+        public Camera Camera
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public void Draw(string context, Vector3 position, Camera cam)
         {
             throw new NotImplementedException();

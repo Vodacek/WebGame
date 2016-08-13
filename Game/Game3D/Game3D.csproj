@@ -70,6 +70,10 @@
       <HintPath>..\packages\Bridge.1.10.2\lib\net40\Bridge.Html5.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Bridge.jQuery2, Version=2.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bridge.jQuery.2.9.1\lib\net40\Bridge.jQuery2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Bridge.WebGL, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Bridge.WebGL.1.7.2\lib\net40\Bridge.WebGL.dll</HintPath>
       <Private>True</Private>
