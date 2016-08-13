@@ -19,6 +19,16 @@
             Emit this Method body Immediately before this class definition
             </summary>
         </member>
+        <member name="F:Bridge.InitPosition.Top">
+            <summary>
+            Emit the contents of this Method body directly to the Top of the file.
+            </summary>
+        </member>
+        <member name="F:Bridge.InitPosition.Bottom">
+            <summary>
+            Emit the contents of this Method body directly to the Bottom of the file.
+            </summary>
+        </member>
         <member name="T:Bridge.ModuleDependencyAttribute">
              <summary>
             
@@ -116,19 +126,21 @@
             this attribute is used.
             </summary>
         </member>
-        <member name="M:Bridge.Script.Write``1(System.String)">
+        <member name="M:Bridge.Script.Write``1(System.String,System.Object[])">
             <summary>
             Inject javascript code
             </summary>
             <typeparam name="T"></typeparam>
             <param name="code"></param>
+            <param name="args"></param>
             <returns></returns>
         </member>
-        <member name="M:Bridge.Script.Write(System.String)">
+        <member name="M:Bridge.Script.Write(System.String,System.Object[])">
             <summary>
             Inject javascript code
             </summary>
             <param name="code"></param>
+            <param name="args"></param>
             <returns></returns>
         </member>
         <member name="F:Bridge.Script.Arguments">
@@ -175,10 +187,10 @@
         </member>
         <member name="M:Bridge.Script.ParseFloat(System.String)">
             <summary>
-            The parseFloat() function parses a string argument and returns a floating point number.
+            Parses a string argument and returns a floating point number corresponding to double .Net type.
             </summary>
             <param name="value">A string that represents the value you want to parse.</param>
-            <returns></returns>
+            <returns>Parsed floating point number with type corresponding to double .Net type</returns>
         </member>
         <member name="M:Bridge.Script.ParseInt(System.String)">
             <summary>
@@ -230,29 +242,396 @@
             <param name="component">A component of a URI.</param>
             <returns></returns>
         </member>
-        <member name="P:System.Exception.Data">
+        <member name="T:Bridge.Error">
             <summary>
-            Gets a collection of key/value pairs that provide additional user-defined information about the exception.
+            The Error constructor creates an error object. Instances of Error objects are thrown when runtime errors occur. The Error object can also be used as a base objects for user-defined exceptions. See below for standard built-in error types.
             </summary>
         </member>
-        <member name="P:System.Exception.Message">
+        <member name="M:Bridge.Date.#ctor(System.Double)">
             <summary>
-            Gets a message that describes the current exception.
+            Double value representing the number of milliseconds since 1 January 1970 00:00:00 UTC (Unix Epoch).
+            </summary>
+            <param name="value">The numberof milliseconds since 1 January 1970 00:00:00 UTC (Unix Epoch)</param>
+        </member>
+        <member name="M:Bridge.Date.#ctor(System.String)">
+            <summary>
+            String value representing a date. The string should be in a format recognized by the Date.parse() method (IETF-compliant RFC 2822 timestamps and also a version of ISO8601).
+            </summary>
+            <param name="dateString"></param>
+        </member>
+        <member name="T:System.Guid">
+            <summary>
+            The Guid data type which is mapped to the string type in Javascript.
             </summary>
         </member>
-        <member name="P:System.Exception.InnerException">
+        <member name="M:System.Random.#ctor">
             <summary>
-            Gets the Exception instance that caused the current exception.
+            Initializes a new instance of the Random class, using a time-dependent default seed value.
             </summary>
         </member>
-        <member name="P:System.Exception.StackTrace">
+        <member name="M:System.Random.#ctor(System.Int32)">
             <summary>
-            Gets a string representation of the immediate frames on the call stack.
+            nitializes a new instance of the Random class, using the specified seed value.
             </summary>
+            <param name="seed">A number used to calculate a starting value for the pseudo-random number sequence. If a negative number is specified, the absolute value of the number is used.</param>
+        </member>
+        <member name="M:System.Random.Sample">
+            <summary>
+            Returns a random floating-point number between 0.0 and 1.0.
+            </summary>
+            <returns>A double-precision floating point number that is greater than or equal to 0.0, and less than 1.0.</returns>
+        </member>
+        <member name="M:System.Random.Next">
+            <summary>
+            Returns a non-negative random integer.
+            </summary>
+            <returns>A 32-bit signed integer that is greater than or equal to 0 and less than Int32.MaxValue.</returns>
+        </member>
+        <member name="M:System.Random.Next(System.Int32,System.Int32)">
+            <summary>
+            Returns a random integer that is within a specified range.
+            </summary>
+            <param name="minValue">The inclusive lower bound of the random number returned.</param>
+            <param name="maxValue">The exclusive upper bound of the random number returned. maxValue must be greater than or equal to minValue.</param>
+            <returns>A 32-bit signed integer greater than or equal to minValue and less than maxValue; that is, the range of return values includes minValue but not maxValue. If minValue equals maxValue, minValue is returned.</returns>
+        </member>
+        <member name="M:System.Random.Next(System.Int32)">
+            <summary>
+            Returns a non-negative random integer that is less than the specified maximum.
+            </summary>
+            <param name="maxValue">The exclusive upper bound of the random number to be generated. maxValue must be greater than or equal to 0</param>
+            <returns>A 32-bit signed integer that is greater than or equal to 0, and less than maxValue; that is, the range of return values ordinarily includes 0 but not maxValue. However, if maxValue equals 0, maxValue is returned.</returns>
+        </member>
+        <member name="M:System.Random.NextDouble">
+            <summary>
+            Returns a random floating-point number that is greater than or equal to 0.0, and less than 1.0.
+            </summary>
+            <returns>A double-precision floating point number that is greater than or equal to 0.0, and less than 1.0.</returns>
+        </member>
+        <member name="M:System.Random.NextBytes(System.Byte[])">
+            <summary>
+            Fills the elements of a specified array of bytes with random numbers.
+            </summary>
+            <param name="buffer">An array of bytes to contain random numbers.</param>
         </member>
         <member name="P:System.ArgumentException.ParamName">
             <summary>
             Gets the name of the parameter that causes this exception.
+            </summary>
+        </member>
+        <member name="T:System.Console">
+            <summary>
+            Represents the standard input, output, and error streams for console applications.
+            </summary>
+        </member>
+        <member name="M:System.Console.ReadLine">
+            <returns>result is a string containing the text entered by the user, or the value null.</returns>
+        </member>
+        <member name="M:System.Console.ReadLine(System.String)">
+            <summary>
+            ReadLine uses the native JavaScript prompt() to display a dialog with an optional message prompting the user to input some text.
+            </summary>
+            <param name="text">text is a string of text to display to the user. This parameter is optional and can be omitted if there is nothing to show in the prompt window.</param>
+            <returns>result is a string containing the text entered by the user, or the value null.</returns>
+        </member>
+        <member name="M:System.Console.ReadLine(System.String,System.String)">
+            <summary>
+            ReadLine uses the native JavaScript prompt() to dialog with an optional message prompting the user to input some text.
+            </summary>
+            <param name="text">text is a string of text to display to the user. This parameter is optional and can be omitted if there is nothing to show in the prompt window.</param>
+            <param name="value">value is a string containing the default value displayed in the text input field. It is an optional parameter. Note that in Internet Explorer 7 and 8, if you do not provide this parameter, the string "undefined" is the default value.</param>
+            <returns>result is a string containing the text entered by the user, or the value null.</returns>
+        </member>
+        <member name="M:System.Console.Read">
+            <summary>
+            Read uses the native JavaScript prompt() to display a dialog with an optional message prompting the user to input some text.
+            </summary>
+            <returns>result is a string containing the text entered by the user, or the value null.</returns>
+        </member>
+        <member name="M:System.Console.Write(System.Boolean)">
+            <summary>
+            Writes the text representation of the specified Boolean value to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.Write(System.Char)">
+            <summary>
+            Writes the specified Unicode character value to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.Write(System.Decimal)">
+            <summary>
+            Writes the text representation of the specified Decimal value to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.Write(System.Double)">
+            <summary>
+            Writes the text representation of the specified double-precision floating-point value to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.Write(System.Int32)">
+            <summary>
+            Writes the text representation of the specified 32-bit signed integer value to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.Write(System.Int64)">
+            <summary>
+            Writes the text representation of the specified 64-bit signed integer value to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.Write(System.Object)">
+            <summary>
+            Writes the text representation of the specified object to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.Write(System.Single)">
+            <summary>
+            Writes the text representation of the specified single-precision floating-point value to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.Write(System.String)">
+            <summary>
+            Writes the specified string value to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.Write(System.String,System.Object)">
+            <summary>
+            Writes the text representation of the specified object to the standard output stream using the specified format information.
+            </summary>
+            <param name="format">A composite format string.</param>
+            <param name="arg0">The first object to write using format.</param>
+        </member>
+        <member name="M:System.Console.Write(System.String,System.Object,System.Object)">
+            <summary>
+            Writes the text representation of the specified objects to the standard output stream using the specified format information.
+            </summary>
+            <param name="format">A composite format string.</param>
+            <param name="arg0">The first object to write using format.</param>
+            <param name="arg1">The second object to write using format.</param>
+        </member>
+        <member name="M:System.Console.Write(System.String,System.Object,System.Object,System.Object)">
+            <summary>
+            Writes the text representation of the specified objects to the standard output stream using the specified format information.
+            </summary>
+            <param name="format">A composite format string.</param>
+            <param name="arg0">The first object to write using format.</param>
+            <param name="arg1">The second object to write using format.</param>
+            <param name="arg2">The third object to write using format.</param>
+        </member>
+        <member name="M:System.Console.Write(System.String,System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            Writes the text representation of the specified objects and variable-length parameter list to the standard output stream using the specified format information.
+            </summary>
+            <param name="format">A composite format string.</param>
+            <param name="arg0">The first object to write using format.</param>
+            <param name="arg1">The second object to write using format.</param>
+            <param name="arg2">The third object to write using format.</param>
+            <param name="arg3">The fourth object to write using format.</param>
+        </member>
+        <member name="M:System.Console.Write(System.String,System.Object[])">
+            <summary>
+            Writes the text representation of the specified array of objects to the standard output stream using the specified format information.
+            </summary>
+            <param name="format">A composite format string.</param>
+            <param name="arg">An array of objects to write using format.</param>
+        </member>
+        <member name="M:System.Console.Write(System.UInt32)">
+            <summary>
+            Writes the text representation of the specified 32-bit unsigned integer value to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.Write(System.UInt64)">
+            <summary>
+            Writes the text representation of the specified 64-bit unsigned integer value to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.Write(System.Char[])">
+            <summary>
+            Writes the specified array of Unicode characters to the standard output stream.
+            </summary>
+            <param name="buffer">An array of Unicode characters.</param>
+        </member>
+        <member name="M:System.Console.WriteLine">
+            <summary>
+            Writes the current line terminator to the standard output stream.
+            </summary>
+        </member>
+        <member name="M:System.Console.WriteLine(System.Boolean)">
+            <summary>
+            Writes the text representation of the specified Boolean value, followed by the current line terminator, to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.WriteLine(System.Char)">
+            <summary>
+            Writes the specified Unicode character, followed by the current line terminator, value to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.WriteLine(System.Decimal)">
+            <summary>
+            Writes the text representation of the specified Decimal value, followed by the current line terminator, to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.WriteLine(System.Double)">
+            <summary>
+            Writes the text representation of the specified double-precision floating-point value, followed by the current line terminator, to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.WriteLine(System.Int32)">
+            <summary>
+            Writes the text representation of the specified 32-bit signed integer value, followed by the current line terminator, to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.WriteLine(System.Int64)">
+            <summary>
+            Writes the text representation of the specified 64-bit signed integer value, followed by the current line terminator, to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.WriteLine(System.Object)">
+            <summary>
+            Writes the text representation of the specified object, followed by the current line terminator, to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.WriteLine(System.Single)">
+            <summary>
+            Writes the text representation of the specified single-precision floating-point value, followed by the current line terminator, to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.WriteLine(System.String)">
+            <summary>
+            Writes the specified string value, followed by the current line terminator, to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.WriteLine(System.String,System.Object)">
+            <summary>
+            Writes the text representation of the specified object, followed by the current line terminator, to the standard output stream using the specified format information.
+            </summary>
+            <param name="format">A composite format string.</param>
+            <param name="arg0">The first object to write using format.</param>
+        </member>
+        <member name="M:System.Console.WriteLine(System.String,System.Object,System.Object)">
+            <summary>
+            Writes the text representation of the specified objects, followed by the current line terminator, to the standard output stream using the specified format information.
+            </summary>
+            <param name="format">A composite format string.</param>
+            <param name="arg0">The first object to write using format.</param>
+            <param name="arg1">The second object to write using format.</param>
+        </member>
+        <member name="M:System.Console.WriteLine(System.String,System.Object,System.Object,System.Object)">
+            <summary>
+            Writes the text representation of the specified objects, followed by the current line terminator, to the standard output stream using the specified format information.
+            </summary>
+            <param name="format">A composite format string.</param>
+            <param name="arg0">The first object to write using format.</param>
+            <param name="arg1">The second object to write using format.</param>
+            <param name="arg2">The third object to write using format.</param>
+        </member>
+        <member name="M:System.Console.WriteLine(System.String,System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            Writes the text representation of the specified objects and variable-length parameter list, followed by the current line terminator, to the standard output stream using the specified format information.
+            </summary>
+            <param name="format">A composite format string.</param>
+            <param name="arg0">The first object to write using format.</param>
+            <param name="arg1">The second object to write using format.</param>
+            <param name="arg2">The third object to write using format.</param>
+            <param name="arg3">The fourth object to write using format.</param>
+        </member>
+        <member name="M:System.Console.WriteLine(System.String,System.Object[])">
+            <summary>
+            Writes the text representation of the specified array of objects, followed by the current line terminator, to the standard output stream using the specified format information.
+            </summary>
+            <param name="format">A composite format string.</param>
+            <param name="arg">An array of objects to write using format.</param>
+        </member>
+        <member name="M:System.Console.WriteLine(System.UInt32)">
+            <summary>
+            Writes the text representation of the specified 32-bit unsigned integer value, followed by the current line terminator, to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.WriteLine(System.UInt64)">
+            <summary>
+            Writes the text representation of the specified 64-bit unsigned integer value, followed by the current line terminator, to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.WriteLine(System.Char[])">
+            <summary>
+            Writes the specified array of Unicode characters, followed by the current line terminator, to the standard output stream.
+            </summary>
+            <param name="buffer">An array of Unicode characters.</param>
+        </member>
+        <member name="M:System.Console.WriteLine(System.Enum)">
+            <summary>
+            Writes the text representation of the specified enum value, followed by the current line terminator, to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.WriteLine(System.Nullable{System.Decimal})">
+            <summary>
+            Writes the text representation of the specified nullable decimal, followed by the current line terminator, to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.WriteLine(System.Nullable{System.Int64})">
+            <summary>
+            Writes the text representation of the specified nullable 64-bit signed integer, followed by the current line terminator, to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.WriteLine(System.Nullable{System.UInt64})">
+            <summary>
+            Writes the text representation of the specified nullable 64-bit unsigned integer, followed by the current line terminator, to the standard output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Console.Clear">
+            <summary>
+            Clears the console buffer and corresponding console window of display information.
+            </summary>
+        </member>
+        <member name="T:System.ArraySegment`1">
+            <summary>
+            Delimits a section of a one-dimensional array.
+            </summary>
+        </member>
+        <member name="P:System.ArraySegment`1.Array">
+            <summary>
+            Gets the original array containing the range of elements that the array segment delimits.
+            </summary>
+        </member>
+        <member name="P:System.ArraySegment`1.Count">
+            <summary>
+            Gets the number of elements in the range delimited by the array segment.
+            </summary>
+        </member>
+        <member name="P:System.ArraySegment`1.Offset">
+            <summary>
+            Gets the position of the first element in the range delimited by the array segment,
+            relative to the start of the original array.
+            </summary>
+        </member>
+        <member name="T:System.Base64FormattingOptions">
+            <summary>
+            Specifies whether relevant "Convert.ToBase64CharArray" and "Convert.ToBase64String" methods insert line breaks in their output.
             </summary>
         </member>
         <member name="T:System.Collections.Generic.ISet`1">
@@ -260,6 +639,700 @@
             Generic collection that guarantees the uniqueness of its elements, as defined
             by some comparer. It also supports basic set operations such as Union, Intersection,
             Complement and Exclusive Complement.
+            </summary>
+        </member>
+        <member name="T:System.Converter`2">
+            <summary>
+            Represents a method that converts an object from one type to another type.
+            </summary>
+            <typeparam name="TInput">The type of object that is to be converted.</typeparam>
+            <typeparam name="TOutput">The type the input object is to be converted to.</typeparam>
+            <param name="input">The object to convert.</param>
+            <returns>The TOutput that represents the converted TInput.</returns>
+        </member>
+        <member name="M:System.Diagnostics.Contracts.Contract.Assume(System.Boolean)">
+            <summary>
+            Instructs code analysis tools to assume the expression <paramref name="condition"/> is true even if it can not be statically proven to always be true.
+            </summary>
+            <param name="condition">Expression to assume will always be true.</param>
+            <remarks>
+            At runtime this is equivalent to an <seealso cref="M:System.Diagnostics.Contracts.Contract.Assert(System.Boolean)"/>.
+            </remarks>
+        </member>
+        <member name="M:System.Diagnostics.Contracts.Contract.Assume(System.Boolean,System.String)">
+            <summary>
+            Instructs code analysis tools to assume the expression <paramref name="condition"/> is true even if it can not be statically proven to always be true.
+            </summary>
+            <param name="condition">Expression to assume will always be true.</param>
+            <param name="userMessage">If it is not a constant string literal, then the contract may not be understood by tools.</param>
+            <remarks>
+            At runtime this is equivalent to an <seealso cref="M:System.Diagnostics.Contracts.Contract.Assert(System.Boolean)"/>.
+            </remarks>
+        </member>
+        <member name="M:System.Diagnostics.Contracts.Contract.Assert(System.Boolean)">
+            <summary>
+            In debug builds, perform a runtime check that <paramref name="condition"/> is true.
+            </summary>
+            <param name="condition">Expression to check to always be true.</param>
+        </member>
+        <member name="M:System.Diagnostics.Contracts.Contract.Assert(System.Boolean,System.String)">
+            <summary>
+            In debug builds, perform a runtime check that <paramref name="condition"/> is true.
+            </summary>
+            <param name="condition">Expression to check to always be true.</param>
+            <param name="userMessage">If it is not a constant string literal, then the contract may not be understood by tools.</param>
+        </member>
+        <member name="M:System.Diagnostics.Contracts.Contract.Requires(System.Boolean)">
+            <summary>
+            Specifies a contract such that the expression <paramref name="condition"/> must be true before the enclosing method or property is invoked.
+            </summary>
+            <param name="condition">Boolean expression representing the contract.</param>
+            <remarks>
+            This call must happen at the beginning of a method or property before any other code.
+            This contract is exposed to clients so must only reference members at least as visible as the enclosing method.
+            Use this form when backward compatibility does not force you to throw a particular exception.
+            </remarks>
+        </member>
+        <member name="M:System.Diagnostics.Contracts.Contract.Requires(System.Boolean,System.String)">
+            <summary>
+            Specifies a contract such that the expression <paramref name="condition"/> must be true before the enclosing method or property is invoked.
+            </summary>
+            <param name="condition">Boolean expression representing the contract.</param>
+            <param name="userMessage">If it is not a constant string literal, then the contract may not be understood by tools.</param>
+            <remarks>
+            This call must happen at the beginning of a method or property before any other code.
+            This contract is exposed to clients so must only reference members at least as visible as the enclosing method.
+            Use this form when backward compatibility does not force you to throw a particular exception.
+            </remarks>
+        </member>
+        <member name="M:System.Diagnostics.Contracts.Contract.Requires``1(System.Boolean)">
+            <summary>
+            Specifies a contract such that the expression <paramref name="condition"/> must be true before the enclosing method or property is invoked.
+            </summary>
+            <param name="condition">Boolean expression representing the contract.</param>
+            <remarks>
+            This call must happen at the beginning of a method or property before any other code.
+            This contract is exposed to clients so must only reference members at least as visible as the enclosing method.
+            Use this form when you want to throw a particular exception.
+            </remarks>
+        </member>
+        <member name="M:System.Diagnostics.Contracts.Contract.Requires``1(System.Boolean,System.String)">
+            <summary>
+            Specifies a contract such that the expression <paramref name="condition"/> must be true before the enclosing method or property is invoked.
+            </summary>
+            <param name="condition">Boolean expression representing the contract.</param>
+            <param name="userMessage">If it is not a constant string literal, then the contract may not be understood by tools.</param>
+            <remarks>
+            This call must happen at the beginning of a method or property before any other code.
+            This contract is exposed to clients so must only reference members at least as visible as the enclosing method.
+            Use this form when you want to throw a particular exception.
+            </remarks>
+        </member>
+        <member name="M:System.Diagnostics.Contracts.Contract.Ensures(System.Boolean)">
+            <summary>
+            Specifies a public contract such that the expression <paramref name="condition"/> will be true when the enclosing method or property returns normally.
+            </summary>
+            <param name="condition">Boolean expression representing the contract.</param>
+            <remarks>
+            This call must happen at the beginning of a method or property before any other code.
+            This contract is exposed to clients so must only reference members at least as visible as the enclosing method.
+            The contract rewriter must be used for runtime enforcement of this postcondition.
+            </remarks>
+        </member>
+        <member name="M:System.Diagnostics.Contracts.Contract.Ensures(System.Boolean,System.String)">
+            <summary>
+            Specifies a public contract such that the expression <paramref name="condition"/> will be true when the enclosing method or property returns normally.
+            </summary>
+            <param name="condition">Boolean expression representing the contract.</param>
+            <param name="userMessage">If it is not a constant string literal, then the contract may not be understood by tools.</param>
+            <remarks>
+            This call must happen at the beginning of a method or property before any other code.
+            This contract is exposed to clients so must only reference members at least as visible as the enclosing method.
+            The contract rewriter must be used for runtime enforcement of this postcondition.
+            </remarks>
+        </member>
+        <member name="M:System.Diagnostics.Contracts.Contract.EnsuresOnThrow``1(System.Boolean)">
+            <summary>
+            Specifies a contract such that if an exception of type <typeparamref name="TException"/> is thrown then the expression <paramref name="condition"/> will be true when the enclosing method or property terminates abnormally.
+            </summary>
+            <typeparam name="TException">Type of exception related to this postcondition.</typeparam>
+            <param name="condition">Boolean expression representing the contract.</param>
+            <remarks>
+            This call must happen at the beginning of a method or property before any other code.
+            This contract is exposed to clients so must only reference types and members at least as visible as the enclosing method.
+            The contract rewriter must be used for runtime enforcement of this postcondition.
+            </remarks>
+        </member>
+        <member name="M:System.Diagnostics.Contracts.Contract.EnsuresOnThrow``1(System.Boolean,System.String)">
+            <summary>
+            Specifies a contract such that if an exception of type <typeparamref name="TException"/> is thrown then the expression <paramref name="condition"/> will be true when the enclosing method or property terminates abnormally.
+            </summary>
+            <typeparam name="TException">Type of exception related to this postcondition.</typeparam>
+            <param name="condition">Boolean expression representing the contract.</param>
+            <param name="userMessage">If it is not a constant string literal, then the contract may not be understood by tools.</param>
+            <remarks>
+            This call must happen at the beginning of a method or property before any other code.
+            This contract is exposed to clients so must only reference types and members at least as visible as the enclosing method.
+            The contract rewriter must be used for runtime enforcement of this postcondition.
+            </remarks>
+        </member>
+        <member name="M:System.Diagnostics.Contracts.Contract.Result``1">
+            <summary>
+            Represents the result (a.k.a. return value) of a method or property.
+            </summary>
+            <typeparam name="T">Type of return value of the enclosing method or property.</typeparam>
+            <returns>Return value of the enclosing method or property.</returns>
+            <remarks>
+            This method can only be used within the argument to the <seealso cref="M:System.Diagnostics.Contracts.Contract.Ensures(System.Boolean)"/> contract.
+            </remarks>
+        </member>
+        <member name="M:System.Diagnostics.Contracts.Contract.ValueAtReturn``1(``0@)">
+            <summary>
+            Represents the final (output) value of an out parameter when returning from a method.
+            </summary>
+            <typeparam name="T">Type of the out parameter.</typeparam>
+            <param name="value">The out parameter.</param>
+            <returns>The output value of the out parameter.</returns>
+            <remarks>
+            This method can only be used within the argument to the <seealso cref="M:System.Diagnostics.Contracts.Contract.Ensures(System.Boolean)"/> contract.
+            </remarks>
+        </member>
+        <member name="M:System.Diagnostics.Contracts.Contract.OldValue``1(``0)">
+            <summary>
+            Represents the value of <paramref name="value"/> as it was at the start of the method or property.
+            </summary>
+            <typeparam name="T">Type of <paramref name="value"/>.  This can be inferred.</typeparam>
+            <param name="value">Value to represent.  This must be a field or parameter.</param>
+            <returns>Value of <paramref name="value"/> at the start of the method or property.</returns>
+            <remarks>
+            This method can only be used within the argument to the <seealso cref="M:System.Diagnostics.Contracts.Contract.Ensures(System.Boolean)"/> contract.
+            </remarks>
+        </member>
+        <member name="M:System.Diagnostics.Contracts.Contract.Invariant(System.Boolean)">
+            <summary>
+            Specifies a contract such that the expression <paramref name="condition"/> will be true after every method or property on the enclosing class.
+            </summary>
+            <param name="condition">Boolean expression representing the contract.</param>
+            <remarks>
+            This contact can only be specified in a dedicated invariant method declared on a class.
+            This contract is not exposed to clients so may reference members less visible as the enclosing method.
+            The contract rewriter must be used for runtime enforcement of this invariant.
+            </remarks>
+        </member>
+        <member name="M:System.Diagnostics.Contracts.Contract.Invariant(System.Boolean,System.String)">
+            <summary>
+            Specifies a contract such that the expression <paramref name="condition"/> will be true after every method or property on the enclosing class.
+            </summary>
+            <param name="condition">Boolean expression representing the contract.</param>
+            <param name="userMessage">If it is not a constant string literal, then the contract may not be understood by tools.</param>
+            <remarks>
+            This contact can only be specified in a dedicated invariant method declared on a class.
+            This contract is not exposed to clients so may reference members less visible as the enclosing method.
+            The contract rewriter must be used for runtime enforcement of this invariant.
+            </remarks>
+        </member>
+        <member name="M:System.Diagnostics.Contracts.Contract.ForAll(System.Int32,System.Int32,System.Predicate{System.Int32})">
+            <summary>
+            Returns whether the <paramref name="predicate"/> returns <c>true</c>
+            for all integers starting from <paramref name="fromInclusive"/> to <paramref name="toExclusive"/> - 1.
+            </summary>
+            <param name="fromInclusive">First integer to pass to <paramref name="predicate"/>.</param>
+            <param name="toExclusive">One greater than the last integer to pass to <paramref name="predicate"/>.</param>
+            <param name="predicate">Function that is evaluated from <paramref name="fromInclusive"/> to <paramref name="toExclusive"/> - 1.</param>
+            <returns><c>true</c> if <paramref name="predicate"/> returns <c>true</c> for all integers
+            starting from <paramref name="fromInclusive"/> to <paramref name="toExclusive"/> - 1.</returns>
+        </member>
+        <member name="M:System.Diagnostics.Contracts.Contract.ForAll``1(System.Collections.Generic.IEnumerable{``0},System.Predicate{``0})">
+            <summary>
+            Returns whether the <paramref name="predicate"/> returns <c>true</c>
+            for all elements in the <paramref name="collection"/>.
+            </summary>
+            <param name="collection">The collection from which elements will be drawn from to pass to <paramref name="predicate"/>.</param>
+            <param name="predicate">Function that is evaluated on elements from <paramref name="collection"/>.</param>
+            <returns><c>true</c> if and only if <paramref name="predicate"/> returns <c>true</c> for all elements in
+            <paramref name="collection"/>.</returns>
+        </member>
+        <member name="M:System.Diagnostics.Contracts.Contract.Exists(System.Int32,System.Int32,System.Predicate{System.Int32})">
+            <summary>
+            Returns whether the <paramref name="predicate"/> returns <c>true</c>
+            for any integer starting from <paramref name="fromInclusive"/> to <paramref name="toExclusive"/> - 1.
+            </summary>
+            <param name="fromInclusive">First integer to pass to <paramref name="predicate"/>.</param>
+            <param name="toExclusive">One greater than the last integer to pass to <paramref name="predicate"/>.</param>
+            <param name="predicate">Function that is evaluated from <paramref name="fromInclusive"/> to <paramref name="toExclusive"/> - 1.</param>
+            <returns><c>true</c> if <paramref name="predicate"/> returns <c>true</c> for any integer
+            starting from <paramref name="fromInclusive"/> to <paramref name="toExclusive"/> - 1.</returns>
+        </member>
+        <member name="M:System.Diagnostics.Contracts.Contract.Exists``1(System.Collections.Generic.IEnumerable{``0},System.Predicate{``0})">
+            <summary>
+            Returns whether the <paramref name="predicate"/> returns <c>true</c>
+            for any element in the <paramref name="collection"/>.
+            </summary>
+            <param name="collection">The collection from which elements will be drawn from to pass to <paramref name="predicate"/>.</param>
+            <param name="predicate">Function that is evaluated on elements from <paramref name="collection"/>.</param>
+            <returns><c>true</c> if and only if <paramref name="predicate"/> returns <c>true</c> for an element in
+            <paramref name="collection"/>.</returns>
+        </member>
+        <member name="M:System.Diagnostics.Contracts.Contract.EndContractBlock">
+            <summary>
+            Marker to indicate the end of the contract section of a method.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.Contracts.ContractAbbreviatorAttribute">
+            <summary>
+            Enables writing abbreviations for contracts that get copied to other methods
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.Contracts.ContractArgumentValidatorAttribute">
+            <summary>
+            Enables factoring legacy if-then-throw into separate methods for reuse and full control over
+            thrown exception and arguments
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.Contracts.ContractClassAttribute">
+            <summary>
+            Types marked with this attribute specify that a separate type contains the contracts for this type.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.Contracts.ContractClassForAttribute">
+            <summary>
+            Types marked with this attribute specify that they are a contract for the type that is the argument of the constructor.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.Contracts.ContractInvariantMethodAttribute">
+            <summary>
+            This attribute is used to mark a method as being the invariant
+            method for a class. The method can have any name, but it must
+            return "void" and take no parameters. The body of the method
+            must consist solely of one or more calls to the method
+            Contract.Invariant. A suggested name for the method is
+            "ObjectInvariant".
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.Contracts.ContractOptionAttribute">
+            <summary>
+            Allows setting contract and tool options at assembly, type, or method granularity.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.Contracts.ContractPublicPropertyNameAttribute">
+            <summary>
+            Allows a field f to be used in the method contracts for a method m when f has less visibility than m.
+            For instance, if the method is public, but the field is private.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.Contracts.ContractReferenceAssemblyAttribute">
+            <summary>
+            Attribute that specifies that an assembly is a reference assembly with contracts.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.Contracts.ContractRuntimeIgnoredAttribute">
+            <summary>
+            Methods (and properties) marked with this attribute can be used within calls to Contract methods, but have no runtime behavior associated with them.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.Contracts.ContractVerificationAttribute">
+            <summary>
+            Instructs downstream tools whether to assume the correctness of this assembly, type or member without performing any verification or not.
+            Can use [ContractVerification(false)] to explicitly mark assembly, type or member as one to *not* have verification performed on it.
+            Most specific element found (member, type, then assembly) takes precedence.
+            (That is useful if downstream tools allow a user to decide which polarity is the default, unmarked case.)
+            </summary>
+            <remarks>
+            Apply this attribute to a type to apply to all members of the type, including nested types.
+            Apply this attribute to an assembly to apply to all types and members of the assembly.
+            Apply this attribute to a property to apply to both the getter and setter.
+            </remarks>
+        </member>
+        <member name="T:System.Diagnostics.Contracts.PureAttribute">
+            <summary>
+            Methods and classes marked with this attribute can be used within calls to Contract methods. Such methods not make any visible state changes.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToBoolean(System.Object)">
+            <summary>
+            Converts the value of a specified object to an equivalent Boolean value.
+            Note: Calling this method for <see cref="T:System.Char"/> and <see cref="T:System.DateTime"/> values always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToBoolean(System.Object,System.IFormatProvider)">
+            <summary>
+            Converts the value of the specified object to an equivalent Boolean value, using the specified culture-specific formatting information.
+            Note: Calling this method for <see cref="T:System.Char"/> and <see cref="T:System.DateTime"/> values always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToChar(System.Object)">
+            <summary>
+            Converts the value of the specified object to a Unicode character.
+            Note: Calling this method for <see cref="T:System.Boolean"/>, <see cref="T:System.Single"/>, <see cref="T:System.Double"/>, <see cref="T:System.Decimal"/> and <see cref="T:System.DateTime"/> values always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToChar(System.Object,System.IFormatProvider)">
+            <summary>
+            Converts the value of the specified object to its equivalent Unicode character, using the specified culture-specific formatting information.
+            Note: Calling this method for <see cref="T:System.Boolean"/>, <see cref="T:System.Single"/>, <see cref="T:System.Double"/>, <see cref="T:System.Decimal"/> and <see cref="T:System.DateTime"/> values always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToChar(System.Boolean)">
+            <summary>
+            Calling this method always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToChar(System.Char)">
+            <summary>
+            Returns the specified Unicode character value; no actual conversion is performed.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToChar(System.SByte)">
+            <summary>
+            Converts the value of the specified 8-bit signed integer to its equivalent Unicode character.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToChar(System.Byte)">
+            <summary>
+            Converts the value of the specified 8-bit unsigned integer to its equivalent Unicode character.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToChar(System.Int16)">
+            <summary>
+            Converts the value of the specified 16-bit signed integer to its equivalent Unicode character.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToChar(System.UInt16)">
+            <summary>
+            Converts the value of the specified 16-bit unsigned integer to its equivalent Unicode character.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToChar(System.Int32)">
+            <summary>
+            Converts the value of the specified 32-bit signed integer to its equivalent Unicode character.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToChar(System.UInt32)">
+            <summary>
+            Converts the value of the specified 32-bit unsigned integer to its equivalent Unicode character.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToChar(System.Int64)">
+            <summary>
+            Converts the value of the specified 64-bit signed integer to its equivalent Unicode character.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToChar(System.UInt64)">
+            <summary>
+            Converts the value of the specified 64-bit unsigned integer to its equivalent Unicode character.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToChar(System.String)">
+            <summary>
+            Converts the value of the specified object to a Unicode character.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToChar(System.String,System.IFormatProvider)">
+            <summary>
+            Converts the value of the specified object to its equivalent Unicode character, using the specified culture-specific formatting information.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToChar(System.Single)">
+            <summary>
+            Calling this method always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToChar(System.Double)">
+            <summary>
+            Calling this method always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToChar(System.Decimal)">
+            <summary>
+            Calling this method always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToChar(System.DateTime)">
+            <summary>
+            Calling this method always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToSByte(System.Object)">
+            <summary>
+            Converts the value of the specified object to an 8-bit signed integer.
+            Note: Calling this method for <see cref="T:System.DateTime"/> value always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToSByte(System.Object,System.IFormatProvider)">
+            <summary>
+            Converts the value of the specified object to an 8-bit signed integer, using the specified culture-specific formatting information.
+            Note: Calling this method for <see cref="T:System.DateTime"/> value always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToSByte(System.String)">
+            <summary>
+            Converts the value of the specified object to an 8-bit signed integer.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToSByte(System.String,System.IFormatProvider)">
+            <summary>
+            Converts the value of the specified object to an 8-bit signed integer, using the specified culture-specific formatting information.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToByte(System.Object)">
+            <summary>
+            Converts the value of the specified object to an 8-bit unsigned integer.
+            Note: Calling this method for <see cref="T:System.DateTime"/> value always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToByte(System.Object,System.IFormatProvider)">
+            <summary>
+            Converts the value of the specified object to an 8-bit unsigned integer, using the specified culture-specific formatting information.
+            Note: Calling this method for <see cref="T:System.DateTime"/> value always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToInt16(System.Object)">
+            <summary>
+            Converts the value of the specified object to a 16-bit signed integer.
+            Note: Calling this method for <see cref="T:System.DateTime"/> value always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToInt16(System.Object,System.IFormatProvider)">
+            <summary>
+            Converts the value of the specified object to a 16-bit signed integer, using the specified culture-specific formatting information.
+            Note: Calling this method for <see cref="T:System.DateTime"/> value always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToUInt16(System.Object)">
+            <summary>
+            Converts the value of the specified object to a 16-bit unsigned integer.
+            Note: Calling this method for <see cref="T:System.DateTime"/> value always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToUInt16(System.Object,System.IFormatProvider)">
+            <summary>
+            Converts the value of the specified object to a 16-bit unsigned integer, using the specified culture-specific formatting information.
+            Note: Calling this method for <see cref="T:System.DateTime"/> value always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToInt32(System.Object)">
+            <summary>
+            Converts the value of the specified object to a 32-bit signed integer.
+            Note: Calling this method for <see cref="T:System.DateTime"/> value always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToInt32(System.Object,System.IFormatProvider)">
+            <summary>
+            Converts the value of the specified object to a 32-bit signed integer, using the specified culture-specific formatting information.
+            Note: Calling this method for <see cref="T:System.DateTime"/> value always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToUInt32(System.Object)">
+            <summary>
+            Converts the value of the specified object to a 32-bit unsigned integer.
+            Note: Calling this method for <see cref="T:System.DateTime"/> value always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToUInt32(System.Object,System.IFormatProvider)">
+            <summary>
+            Converts the value of the specified object to a 32-bit unsigned integer, using the specified culture-specific formatting information.
+            Note: Calling this method for <see cref="T:System.DateTime"/> value always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToInt64(System.Object)">
+            <summary>
+            Converts the value of the specified object to a 64-bit signed integer.
+            Note: Calling this method for <see cref="T:System.DateTime"/> value always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToInt64(System.Object,System.IFormatProvider)">
+            <summary>
+            Converts the value of the specified object to a 64-bit signed integer, using the specified culture-specific formatting information.
+            Note: Calling this method for <see cref="T:System.DateTime"/> value always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToUInt64(System.Object)">
+            <summary>
+            Converts the value of the specified object to a 64-bit unsigned integer.
+            Note: Calling this method for <see cref="T:System.DateTime"/> value always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToUInt64(System.Object,System.IFormatProvider)">
+            <summary>
+            Converts the value of the specified object to a 64-bit unsigned integer, using the specified culture-specific formatting information.
+            Note: Calling this method for <see cref="T:System.DateTime"/> value always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToSingle(System.Object)">
+            <summary>
+            Converts the value of the specified object to a single-precision floating-point number.
+            Note: Calling this method for <see cref="T:System.DateTime"/> value always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToSingle(System.Object,System.IFormatProvider)">
+            <summary>
+            Converts the value of the specified object to an single-precision floating-point number, using the specified culture-specific formatting information.
+            Note: Calling this method for <see cref="T:System.DateTime"/> value always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToDouble(System.Object)">
+            <summary>
+            Converts the value of the specified object to a double-precision floating-point number.
+            Note: Calling this method for <see cref="T:System.DateTime"/> value always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToDouble(System.Object,System.IFormatProvider)">
+            <summary>
+            Converts the value of the specified object to an double-precision floating-point number, using the specified culture-specific formatting information.
+            Note: Calling this method for <see cref="T:System.DateTime"/> value always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToDecimal(System.Object)">
+            <summary>
+            Converts the value of the specified object to an equivalent decimal number.
+            Note: Calling this method for <see cref="T:System.DateTime"/> value always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToDecimal(System.Object,System.IFormatProvider)">
+            <summary>
+            Converts the value of the specified object to an equivalent decimal number, using the specified culture-specific formatting information.
+            Note: Calling this method for <see cref="T:System.DateTime"/> value always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToDateTime(System.Object)">
+            <summary>
+            Converts the value of the specified object to a <see cref="T:System.DateTime"/> object.
+            Note: Calling this method for built-in types (except <see cref="T:System.DateTime"/>, <see cref="T:System.String"/>) always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToDateTime(System.Object,System.IFormatProvider)">
+            <summary>
+            Converts the value of the specified object to a <see cref="T:System.DateTime"/> object, using the specified culture-specific formatting information.
+            Note: Calling this method for built-in types (except <see cref="T:System.DateTime"/>, <see cref="T:System.String"/>) always throws <see cref="T:System.InvalidCastException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToString(System.Object)">
+            <summary>
+            Converts the value of the specified object to its equivalent string representation.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToString(System.Object,System.IFormatProvider)">
+            <summary>
+            Converts the value of the specified object to its equivalent string representation using the specified culture-specific formatting information.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToString(System.Char)">
+            <summary>
+            Converts the value of the specified object to its equivalent string representation.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToString(System.Char,System.IFormatProvider)">
+            <summary>
+            Converts the value of the specified object to its equivalent string representation using the specified culture-specific formatting information.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToByte(System.String,System.Int32)">
+            <summary>
+            Converts the string representation of a number in a specified base to an equivalent 8-bit unsigned integer.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToSByte(System.String,System.Int32)">
+            <summary>
+            Converts the string representation of a number in a specified base to an equivalent 8-bit signed integer.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToInt16(System.String,System.Int32)">
+            <summary>
+            Converts the string representation of a number in a specified base to an equivalent 16-bit signed integer.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToUInt16(System.String,System.Int32)">
+            <summary>
+            Converts the string representation of a number in a specified base to an equivalent 16-bit unsigned integer.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToInt32(System.String,System.Int32)">
+            <summary>
+            Converts the string representation of a number in a specified base to an equivalent 32-bit signed integer.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToUInt32(System.String,System.Int32)">
+            <summary>
+            Converts the string representation of a number in a specified base to an equivalent 32-bit unsigned integer.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToInt64(System.String,System.Int32)">
+            <summary>
+            Converts the string representation of a number in a specified base to an equivalent 64-bit signed integer.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToUInt64(System.String,System.Int32)">
+            <summary>
+            Converts the string representation of a number in a specified base to an equivalent 64-bit unsigned integer.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToString(System.Byte,System.Int32)">
+            <summary>
+            Converts the value of an 8-bit unsigned integer to its equivalent string representation in a specified base.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToString(System.Int16,System.Int32)">
+            <summary>
+            Converts the value of a 16-bit signed integer to its equivalent string representation in a specified base.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToString(System.Int32,System.Int32)">
+            <summary>
+            Converts the value of a 32-bit signed integer to its equivalent string representation in a specified base.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToString(System.Int64,System.Int32)">
+            <summary>
+            Converts the value of a 64-bit signed integer to its equivalent string representation in a specified base.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToBase64String(System.Byte[])">
+            <summary>
+            Converts an array of 8-bit unsigned integers to its equivalent string representation that is encoded with base-64 digits.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToBase64String(System.Byte[],System.Base64FormattingOptions)">
+            <summary>
+            Converts an array of 8-bit unsigned integers to its equivalent string representation that is encoded with base-64 digits. A parameter specifies whether to insert line breaks in the return value.
+            </summary>
+            <param name="inArray">An array of 8-bit unsigned integers. </param><param name="options"><see cref="F:System.Base64FormattingOptions.InsertLineBreaks"/> to insert a line break every 76 characters, or <see cref="F:System.Base64FormattingOptions.None"/> to not insert line breaks.</param><exception cref="T:System.ArgumentNullException"><paramref name="inArray"/> is null. </exception><exception cref="T:System.ArgumentException"><paramref name="options"/> is not a valid <see cref="T:System.Base64FormattingOptions"/> value. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:System.Convert.ToBase64String(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Converts a subset of an array of 8-bit unsigned integers to its equivalent string representation that is encoded with base-64 digits. Parameters specify the subset as an offset in the input array, and the number of elements in the array to convert.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToBase64String(System.Byte[],System.Int32,System.Int32,System.Base64FormattingOptions)">
+            <summary>
+            Converts a subset of an array of 8-bit unsigned integers to its equivalent string representation that is encoded with base-64 digits. Parameters specify the subset as an offset in the input array, the number of elements in the array to convert, and whether to insert line breaks in the return value.
+            </summary>
+        </member>
+        <member name="M:System.Convert.ToBase64CharArray(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32)">
+             <summary>
+             Converts a subset of an 8-bit unsigned integer array to an equivalent subset of a Unicode character array encoded with base-64 digits. Parameters specify the subsets as offsets in the input and output arrays, and the number of elements in the input array to convert.
+             </summary>
+            
+             <returns>
+             A 32-bit signed integer containing the number of bytes in <paramref name="outArray"/>.
+             </returns>
+        </member>
+        <member name="M:System.Convert.ToBase64CharArray(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32,System.Base64FormattingOptions)">
+             <summary>
+             Converts a subset of an 8-bit unsigned integer array to an equivalent subset of a Unicode character array encoded with base-64 digits. Parameters specify the subsets as offsets in the input and output arrays, the number of elements in the input array to convert, and whether line breaks are inserted in the output array.
+             </summary>
+            
+             <returns>
+             A 32-bit signed integer containing the number of bytes in <paramref name="outArray"/>.
+             </returns>
+        </member>
+        <member name="M:System.Convert.FromBase64String(System.String)">
+            <summary>
+            Converts the specified string, which encodes binary data as base-64 digits, to an equivalent 8-bit unsigned integer array.
+            </summary>
+        </member>
+        <member name="M:System.Convert.FromBase64CharArray(System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Converts a subset of a Unicode character array, which encodes binary data as base-64 digits, to an equivalent 8-bit unsigned integer array. Parameters specify the subset in the input array and the number of elements to convert.
             </summary>
         </member>
         <member name="T:System.EventArgs">
@@ -291,6 +1364,133 @@
             <typeparam name="TEventArgs">The type of the event data generated by the event.</typeparam>
             <param name="sender">The source of the event.</param>
             <param name="e">An System.EventArgs that contains the event data.</param>
+        </member>
+        <member name="T:System.Net.WebSockets.ClientWebSocket">
+            <summary>
+            Provides a client for connecting to WebSocket services.
+            </summary>
+        </member>
+        <member name="P:System.Net.WebSockets.ClientWebSocket.State">
+            <summary>
+            Get the WebSocket state of the <see cref="T:System.Net.WebSockets.ClientWebSocket"/> instance.
+            </summary>
+        </member>
+        <member name="P:System.Net.WebSockets.ClientWebSocket.Options">
+            <summary>
+            Gets the WebSocket options for the ClientWebSocket instance.
+            </summary>
+        </member>
+        <member name="P:System.Net.WebSockets.ClientWebSocket.CloseStatus">
+            <summary>
+            Gets the reason why the close handshake was initiated on ClientWebSocket instance.
+            </summary>
+        </member>
+        <member name="P:System.Net.WebSockets.ClientWebSocket.CloseStatusDescription">
+            <summary>
+            Returns the optional description that describes why the close handshake
+            has been initiated by the remote endpoint.
+            </summary>
+        </member>
+        <member name="P:System.Net.WebSockets.ClientWebSocket.SubProtocol">
+            <summary>
+            Gets the supported WebSocket sub-protocol for the ClientWebSocket instance.
+            </summary>
+        </member>
+        <member name="M:System.Net.WebSockets.ClientWebSocket.ConnectAsync(System.Uri,System.Threading.CancellationToken)">
+            <summary>
+            Connect to a WebSocket server as an asynchronous operation.
+            </summary>
+            <param name="uri">The URI of the WebSocket server to connect to.</param>
+            <param name="cancellationToken">IGNORED: Connection can't be interrupted in Javascript.</param>
+        </member>
+        <member name="M:System.Net.WebSockets.ClientWebSocket.SendAsync(System.ArraySegment{System.Byte},System.Net.WebSockets.WebSocketMessageType,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Send data on ClientWebSocket. Though this method has Async suffix, returned Task will
+            always be completed(i.e. you can't track sending progress), due to Javascript limitations.
+            </summary>
+            <param name="buffer">The buffer containing the message to be sent.</param>
+            <param name="messageType">Specifies whether the buffer is clear text or in a binary format.</param>
+            <param name="endOfMessage">IGNORED: You can't define end of WebSocket message in Javascript.</param>
+            <param name="cancellationToken">IGNORED: Send can't be interrupted in Javascript.</param>
+        </member>
+        <member name="M:System.Net.WebSockets.ClientWebSocket.CloseAsync(System.Net.WebSockets.WebSocketCloseStatus,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Close the ClientWebSocket instance as an asynchronous operation.
+            </summary>
+            <param name="closeStatus">The WebSocket close status.</param>
+            <param name="statusDescription">A description of the close status.</param>
+            <param name="cancellationToken">
+            A cancellation token used to propagate notification that this operation should be canceled.
+            Only useful if you don't want to wait for closing response, as closing can't be interrupted once initiated.
+            </param>
+        </member>
+        <member name="M:System.Net.WebSockets.ClientWebSocket.CloseOutputAsync(System.Net.WebSockets.WebSocketCloseStatus,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Close the ClientWebSocket instance. Though this method has Async suffix, returned Task will
+            always be completed(i.e. you can't track sending progress), due to Javascript limitations.
+            </summary>
+            <param name="closeStatus">The WebSocket close status.</param>
+            <param name="statusDescription">A description of the close status.</param>
+            <param name="cancellationToken">IGNORED: Close can't be interrupted in Javascript. </param>
+        </member>
+        <member name="M:System.Net.WebSockets.ClientWebSocket.Abort">
+            <summary>
+            Aborts the connection and cancels any pending IO operations.
+            </summary>
+        </member>
+        <member name="T:System.Net.WebSockets.ClientWebSocketOptions">
+            <summary>
+            Options to use with a <see cref="T:System.Net.WebSockets.ClientWebSocket"/> object.
+            </summary>
+        </member>
+        <member name="M:System.Net.WebSockets.ClientWebSocketOptions.AddSubProtocol(System.String)">
+            <summary>
+            Adds a sub-protocol to be negotiated during the WebSocket connection handshake.
+            </summary>
+        </member>
+        <member name="T:System.Net.WebSockets.WebSocketCloseStatus">
+            <summary>
+            Represents well known WebSocket close codes as defined in section 11.7 of the WebSocket protocol spec.
+            </summary> 
+        </member>
+        <member name="T:System.Net.WebSockets.WebSocketReceiveResult">
+            <summary>
+            An instance of this class represents the result of performing a single ReceiveAsync operation on a WebSocket.
+            </summary>
+        </member>
+        <member name="P:System.Net.WebSockets.WebSocketReceiveResult.Count">
+            <summary>
+            Indicates the number of bytes that the WebSocket received.
+            </summary>
+        </member>
+        <member name="P:System.Net.WebSockets.WebSocketReceiveResult.EndOfMessage">
+            <summary>
+            Indicates whether the message has been received completely.
+            </summary>
+        </member>
+        <member name="P:System.Net.WebSockets.WebSocketReceiveResult.MessageType">
+            <summary>
+            Indicates whether the current message is a UTF-8 message or a binary message.
+            </summary>
+        </member>
+        <member name="P:System.Net.WebSockets.WebSocketReceiveResult.CloseStatus">
+            <summary>
+            Indicates the reason why the remote endpoint initiated the close handshake.
+            </summary>
+        </member>
+        <member name="P:System.Net.WebSockets.WebSocketReceiveResult.CloseStatusDescription">
+            <summary>
+            Returns the optional description that describes why the close handshake has been initiated by the remote endpoint.
+            </summary>
+        </member>
+        <member name="T:System.Predicate`1">
+            <summary>
+            Represents the method that defines a set of criteria and determines whether the specified object meets those criteria.
+            </summary>
+            <returns>
+            true if <paramref name="obj"/> meets the criteria defined within the method represented by this delegate; otherwise, false.
+            </returns>
+            <param name="obj">The object to compare against the criteria defined within the method represented by this delegate.</param><typeparam name="T">The type of the object to compare.This type parameter is contravariant. That is, you can use either the type you specified or any type that is less derived. For more information about covariance and contravariance, see Covariance and Contravariance in Generics.</typeparam><filterpriority>2</filterpriority>
         </member>
         <member name="M:System.Linq.Enumerable.Aggregate``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``0})">
             <summary>
@@ -5117,6 +6317,704 @@
             Specifies the culture, case, and sort rules to be used by certain overloads of the String.Compare and String.Equals methods.
             </summary>
         </member>
+        <member name="T:System.Text.RegularExpressions.Capture">
+            <summary>
+            Represents the results from a single successful subexpression capture.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.Capture.Index">
+            <summary>
+            The position in the original string where the first character of the captured substring is found.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.Capture.Length">
+            <summary>
+            Gets the length of the captured substring.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.Capture.Value">
+            <summary>
+            Gets the captured substring from the input string.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Capture.ToString">
+            <summary>
+            Retrieves the captured substring from the input string by calling the Value property. (Overrides Object.ToString().)
+            </summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.CaptureCollection">
+            <summary>
+            Represents the set of captures made by a single capturing group.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.CaptureCollection.SyncRoot">
+            <summary>
+            Gets an object that can be used to synchronize access to the collection.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.CaptureCollection.IsSynchronized">
+            <summary>
+            Gets a value that indicates whether access to the collection is synchronized (thread-safe).
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.CaptureCollection.IsReadOnly">
+            <summary>
+            Gets a value that indicates whether the collection is read only.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.CaptureCollection.Count">
+            <summary>
+            Gets the number of substrings captured by the group.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.CaptureCollection.Item(System.Int32)">
+            <summary>
+            Gets an individual member of the collection.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.CaptureCollection.CopyTo(System.Array,System.Int32)">
+            <summary>
+            Copies all the elements of the collection to the given array beginning at the given index.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.CaptureCollection.GetEnumerator">
+            <summary>
+            Provides an enumerator that iterates through the collection.
+            </summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Group">
+            <summary>
+            Represents the results from a single capturing group.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.Group.Success">
+            <summary>
+            Gets a value indicating whether the match is successful.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.Group.Captures">
+            <summary>
+            Gets a collection of all the captures matched by the capturing group, in innermost-leftmost-first order 
+            (or innermost-rightmost-first order if the regular expression is modified with the RegexOptions.RightToLeft option). 
+            The collection may have zero or more items.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Group.Synchronized(System.Text.RegularExpressions.Group)">
+            <summary>
+            Returns a Group object equivalent to the one supplied that is safe to share between multiple threads.
+            </summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.GroupCollection">
+            <summary>
+            Returns the set of captured groups in a single match.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.GroupCollection.SyncRoot">
+            <summary>
+            Gets an object that can be used to synchronize access to the GroupCollection.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.GroupCollection.IsSynchronized">
+            <summary>
+            Gets a value that indicates whether access to the GroupCollection is synchronized (thread-safe).
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.GroupCollection.IsReadOnly">
+            <summary>
+            Gets a value that indicates whether the collection is read-only.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.GroupCollection.Count">
+            <summary>
+            Returns the number of groups in the collection.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.GroupCollection.Item(System.Int32)">
+            <summary>
+            Enables access to a member of the collection by integer index.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.GroupCollection.Item(System.String)">
+            <summary>
+            Enables access to a member of the collection by string index.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.GroupCollection.CopyTo(System.Array,System.Int32)">
+            <summary>
+            Copies all the elements of the collection to the given array beginning at the given index.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.GroupCollection.GetEnumerator">
+            <summary>
+            Provides an enumerator that iterates through the collection.
+            </summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Match">
+            <summary>
+            Represents the results from a single regular expression match.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.Match.Empty">
+            <summary>
+            Gets the empty group. All failed matches return this empty match.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.Match.Groups">
+            <summary>
+            Gets a collection of groups matched by the regular expression.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Match.NextMatch">
+            <summary>
+            Returns a new Match object with the results for the next match, starting at the position at which the last match ended (at the character after the last matched character).
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Match.Result(System.String)">
+            <summary>
+            Returns the expansion of the specified replacement pattern.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Match.Synchronized(System.Text.RegularExpressions.Match)">
+            <summary>
+            Returns a Match instance equivalent to the one supplied that is suitable to share between multiple threads.
+            </summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.MatchCollection">
+            <summary>
+            Represents the set of successful matches found by iteratively applying a regular expression pattern to the input string.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.MatchCollection.Count">
+            <summary>
+            Gets the number of matches.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.MatchCollection.SyncRoot">
+            <summary>
+            Gets an object that can be used to synchronize access to the collection.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.MatchCollection.IsSynchronized">
+            <summary>
+            Gets a value indicating whether access to the collection is synchronized (thread-safe).
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.MatchCollection.IsReadOnly">
+            <summary>
+            Gets a value that indicates whether the collection is read only.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.MatchCollection.Item(System.Int32)">
+            <summary>
+            Gets an individual member of the collection.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.MatchCollection.CopyTo(System.Array,System.Int32)">
+            <summary>
+            Copies all the elements of the collection to the given array starting at the given index.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.MatchCollection.GetEnumerator">
+            <summary>
+            Provides an enumerator that iterates through the collection.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.Regex.MatchTimeout">
+            <summary>
+            Gets the time-out interval of the current instance.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.Regex.Options">
+            <summary>
+            Gets the options that were passed into the Regex constructor.
+            </summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.Regex.RightToLeft">
+            <summary>
+            Gets a value that indicates whether the regular expression searches from right to left.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.GetGroupNames">
+            <summary>
+            Returns an array of capturing group names for the regular expression.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.GetGroupNumbers">
+            <summary>
+            Returns an array of capturing group numbers that correspond to group names in an array.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.GroupNameFromNumber(System.Int32)">
+            <summary>
+            Gets the group name that corresponds to the specified group number.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.GroupNumberFromName(System.String)">
+            <summary>
+            Returns the group number that corresponds to the specified group name.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.IsMatch(System.String)">
+            <summary>
+            Indicates whether the regular expression specified in the Regex constructor finds a match in a specified input string.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.IsMatch(System.String,System.Int32)">
+            <summary>
+            Indicates whether the regular expression specified in the Regex constructor finds a match in the specified input string, beginning at the specified starting position in the string.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Match(System.String)">
+            <summary>
+            Searches the specified input string for the first occurrence of the regular expression specified in the Regex constructor.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Match(System.String,System.Int32)">
+            <summary>
+            Searches the input string for the first occurrence of a regular expression, beginning at the specified starting position in the string.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Match(System.String,System.Int32,System.Int32)">
+            <summary>
+            Searches the input string for the first occurrence of a regular expression, beginning at the specified starting position and searching only the specified number of characters.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Matches(System.String)">
+            <summary>
+            Searches the specified input string for all occurrences of a regular expression.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Matches(System.String,System.Int32)">
+            <summary>
+            Searches the specified input string for all occurrences of a regular expression, beginning at the specified starting position in the string.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Replace(System.String,System.String)">
+            <summary>
+            In a specified input string, replaces all strings that match a regular expression pattern with a specified replacement string.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Replace(System.String,System.String,System.Int32)">
+            <summary>
+            In a specified input string, replaces a specified maximum number of strings that match a regular expression pattern with a specified replacement string.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Replace(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            In a specified input substring, replaces a specified maximum number of strings that match a regular expression pattern with a specified replacement string.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Replace(System.String,System.Text.RegularExpressions.MatchEvaluator)">
+            <summary>
+            In a specified input string, replaces all strings that match a specified regular expression with a string returned by a <see cref="T:System.Text.RegularExpressions.MatchEvaluator"/> delegate.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Replace(System.String,System.Text.RegularExpressions.MatchEvaluator,System.Int32)">
+            <summary>
+            In a specified input string, replaces a specified maximum number of strings that match a regular expression pattern with a string returned by a <see cref="T:System.Text.RegularExpressions.MatchEvaluator"/> delegate.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Replace(System.String,System.Text.RegularExpressions.MatchEvaluator,System.Int32,System.Int32)">
+            <summary>
+            In a specified input substring, replaces a specified maximum number of strings that match a regular expression pattern with a string returned by a <see cref="T:System.Text.RegularExpressions.MatchEvaluator"/> delegate.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Split(System.String)">
+            <summary>
+            Splits an input string into an array of substrings at the positions defined by a regular expression pattern specified in the Regex constructor.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Split(System.String,System.Int32)">
+            <summary>
+            Splits an input string a specified maximum number of times into an array of substrings, at the positions defined by a regular expression specified in the Regex constructor.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Split(System.String,System.Int32,System.Int32)">
+            <summary>
+            Splits an input string a specified maximum number of times into an array of substrings, at the positions defined by a regular expression specified in the Regex constructor. The search for the regular expression pattern starts at a specified character position in the input string.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Escape(System.String)">
+            <summary>
+            Determines whether the specified object is equal to the current object.(Inherited from Object.)
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Unescape(System.String)">
+            <summary>
+            Converts any escaped characters in the input string.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.IsMatch(System.String,System.String)">
+            <summary>
+            Indicates whether the specified regular expression finds a match in the specified input string.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.IsMatch(System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            Indicates whether the specified regular expression finds a match in the specified input string, using the specified matching options.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.IsMatch(System.String,System.String,System.Text.RegularExpressions.RegexOptions,System.TimeSpan)">
+            <summary>
+            Indicates whether the specified regular expression finds a match in the specified input string, using the specified matching options and time-out interval.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Match(System.String,System.String)">
+            <summary>
+            Searches the specified input string for the first occurrence of the specified regular expression.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Match(System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            Searches the input string for the first occurrence of the specified regular expression, using the specified matching options.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Match(System.String,System.String,System.Text.RegularExpressions.RegexOptions,System.TimeSpan)">
+            <summary>
+            Searches the input string for the first occurrence of the specified regular expression, using the specified matching options and time-out interval.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Matches(System.String,System.String)">
+            <summary>
+            Searches the specified input string for all occurrences of a specified regular expression.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Matches(System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            Searches the specified input string for all occurrences of a specified regular expression, using the specified matching options.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Matches(System.String,System.String,System.Text.RegularExpressions.RegexOptions,System.TimeSpan)">
+            <summary>
+            Searches the specified input string for all occurrences of a specified regular expression, using the specified matching options and time-out interval.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Replace(System.String,System.String,System.String)">
+            <summary>
+            In a specified input string, replaces all strings that match a specified regular expression with a specified replacement string.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Replace(System.String,System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            In a specified input string, replaces all strings that match a specified regular expression with a specified replacement string. Specified options modify the matching operation.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Replace(System.String,System.String,System.String,System.Text.RegularExpressions.RegexOptions,System.TimeSpan)">
+            <summary>
+            In a specified input string, replaces all strings that match a specified regular expression with a specified replacement string. Additional parameters specify options that modify the matching operation and a time-out interval if no match is found.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Replace(System.String,System.String,System.Text.RegularExpressions.MatchEvaluator)">
+            <summary>
+            In a specified input string, replaces all strings that match a specified regular expression with a string returned by a <see cref="T:System.Text.RegularExpressions.MatchEvaluator"/> delegate.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Replace(System.String,System.String,System.Text.RegularExpressions.MatchEvaluator,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            In a specified input string, replaces all strings that match a specified regular expression with a string returned by a <see cref="T:System.Text.RegularExpressions.MatchEvaluator"/> delegate. Specified options modify the matching operation.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Replace(System.String,System.String,System.Text.RegularExpressions.MatchEvaluator,System.Text.RegularExpressions.RegexOptions,System.TimeSpan)">
+            <summary>
+            In a specified input string, replaces all substrings that match a specified regular expression with a string returned by a <see cref="T:System.Text.RegularExpressions.MatchEvaluator"/> delegate. Additional parameters specify options that modify the matching operation and a time-out interval if no match is found.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Split(System.String,System.String)">
+            <summary>
+            Splits an input string into an array of substrings at the positions defined by a regular expression pattern.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Split(System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            Splits an input string into an array of substrings at the positions defined by a specified regular expression pattern. Specified options modify the matching operation.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Regex.Split(System.String,System.String,System.Text.RegularExpressions.RegexOptions,System.TimeSpan)">
+            <summary>
+            Splits an input string into an array of substrings at the positions defined by a specified regular expression pattern. Additional parameters specify options that modify the matching operation and a time-out interval if no match is found.
+            </summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.MatchEvaluator">
+            <summary>
+            Represents the method that is called each time a regular expression match is found during a Replace method operation.
+            </summary>
+            <param name="match"></param>
+            <returns></returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.RegexOptions">
+            <summary>
+            Provides enumerated values to use to set regular expression options.
+            </summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.RegexOptions.None">
+            <summary>
+            Specifies that no options are set. For more information about the default behavior of the regular expression engine, see the "Default Options" section in the Regular Expression Options topic.
+            </summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.RegexOptions.IgnoreCase">
+            <summary>
+            Specifies case-insensitive matching. For more information, see the "Case-Insensitive Matching " section in the Regular Expression Options topic.
+            </summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.RegexOptions.Multiline">
+            <summary>
+            Multiline mode. Changes the meaning of ^ and $ so they match at the beginning and end, respectively, of any line, and not just the beginning and end of the entire string. For more information, see the "Multiline Mode" section in the Regular Expression Options topic.
+            </summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.RegexOptions.Singleline">
+            <summary>
+            Specifies single-line mode. Changes the meaning of the dot (.) so it matches every character (instead of every character except \n). For more information, see the "Single-line Mode" section in the Regular Expression Options topic.
+            </summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.RegexOptions.IgnorePatternWhitespace">
+            <summary>
+            Eliminates unescaped white space from the pattern and enables comments marked with #. However, this value does not affect or eliminate white space in , numeric , or tokens that mark the beginning of individual . For more information, see the "Ignore White Space" section of the Regular Expression Options topic.
+            </summary>
+        </member>
+        <member name="P:System.Text.StringBuilder.Length">
+            <summary>
+            Gets or sets the length of the current StringBuilder object.
+            </summary>
+        </member>
+        <member name="F:System.Threading.Timeout.Infinite">
+            <summary>
+            A constant used to specify an infinite waiting period, for threading methods that accept an Int32 parameter.
+            </summary>
+        </member>
+        <member name="T:System.Threading.TimerCallback">
+            <summary>
+            Represents the method that handles calls from a Timer.
+            </summary>
+            <param name="state">An object containing application-specific information relevant to the method invoked by this delegate, or null.</param>
+            <remarks>
+            Use a TimerCallback delegate to specify the method that is called by a Timer.
+            This method does not execute in the thread that created the timer;
+            it executes in a separate thread pool thread that is provided by the system.
+            The TimerCallback delegate invokes the method once after the start time elapses,
+            and continues to invoke it once per timer interval until the Dispose method is called,
+            or until the Timer.Change method is called with the interval value Infinite.
+            The timer delegate is specified when the timer is constructed, and cannot be changed.
+            The start time for a Timer is passed in the dueTime parameter of the Timer constructors, and the period is passed in the period parameter.
+            For an example that demonstrates creating and using a TimerCallback delegate, see System.Threading.Timer.
+            </remarks>
+        </member>
+        <member name="T:System.Threading.Timer">
+            <summary>
+            Provides a mechanism for executing a method at specified intervals. This class cannot be inherited.
+            </summary>
+            <remarks>
+            <example>
+            <code>
+            TimerCallback callback = (o) => { Html5.Window.Alert(o.ToString()); };
+            var timer = new Timer(callback, "SomeState", 500, 500);
+            await Task.Delay(200); // It allows the timer to work
+            timer.Change(-1, 200); // Stops the timer
+            timer.Dispose() // Stops the timer "forever"
+            </code>
+            Timer implemented based on setTimeout() see https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setTimeout#Notes.
+            It's important to note that the function or code snippet cannot be executed until the thread that called setTimeout() has terminated.
+            The delegate specified by the callback parameter is invoked once after dueTime elapses,
+            and thereafter each time the period time interval elapses.
+            If dueTime is zero (0), callback is invoked immediately. If dueTime is Timeout.Infinite, callback is not invoked;
+            the timer is disabled, but can be re-enabled by calling the Change method.
+            Successive setTimeout() calls with delay smaller than the "minimum delay" limit are forced to use at least the minimum delay.
+            The minimum delay, DOM_MIN_TIMEOUT_VALUE, is 4 ms (stored in a preference in Firefox: dom.min_timeout_value),
+            with a DOM_CLAMP_TIMEOUT_NESTING_LEVEL of 5.
+            If period is zero (0) or Timeout.Infinite and dueTime is not Timeout.Infinite, callback is invoked once;
+            the periodic behavior of the timer is disabled, but can be re-enabled using the Change method.
+            </example>
+            </remarks>
+        </member>
+        <member name="M:System.Threading.Timer.#ctor(System.Threading.TimerCallback,System.Object,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the Timer class, using a 32-bit signed integer to specify the time interval.
+            The delegate specified by the callback parameter is invoked once after dueTime elapses, and thereafter each time the period time interval elapses.
+            If dueTime is zero (0), callback is invoked immediately.If dueTime is Timeout.Infinite, callback is not invoked; the timer is disabled, but can be re-enabled by calling the Change method.
+            </summary>
+            <param name="callback">A TimerCallback delegate representing a method to be executed.</param>
+            <param name="state">An object containing information to be used by the callback method, or null.</param>
+            <param name="dueTime">The amount of time to delay before callback is invoked, in milliseconds. Specify Timeout.Infinite to prevent the timer from starting. Specify zero (0) to start the timer immediately.</param>
+            <param name="period">The time interval between invocations of callback, in milliseconds. Specify Timeout.Infinite to disable periodic signaling.</param>
+        </member>
+        <member name="M:System.Threading.Timer.#ctor(System.Threading.TimerCallback,System.Object,System.TimeSpan,System.TimeSpan)">
+            <summary>
+            Initializes a new instance of the Timer class, using TimeSpan values to measure time intervals.
+            The delegate specified by the callback parameter is invoked once after dueTime elapses, and thereafter each time the period time interval elapses.
+            If dueTime is zero (0), callback is invoked immediately.If dueTime is negative one (-1) milliseconds, callback is not invoked; the timer is disabled, but can be re-enabled by calling the Change method.
+            </summary>
+            <param name="callback">A TimerCallback delegate representing a method to be executed.</param>
+            <param name="state">An object containing information to be used by the callback method, or null.</param>
+            <param name="dueTime">The amount of time to delay before callback is invoked, in milliseconds. Specify Timeout.Infinite to prevent the timer from starting. Specify zero (0) to start the timer immediately.</param>
+            <param name="period">The time interval between invocations of callback, in milliseconds. Specify Timeout.Infinite to disable periodic signaling.</param>
+        </member>
+        <member name="M:System.Threading.Timer.#ctor(System.Threading.TimerCallback,System.Object,System.UInt32,System.UInt32)">
+            <summary>
+            Initializes a new instance of the Timer class, using 32-bit unsigned integers to measure time intervals.
+            The delegate specified by the callback parameter is invoked once after dueTime elapses, and thereafter each time the period time interval elapses.
+            If dueTime is zero (0), callback is invoked immediately.If dueTime is Timeout.Infinite, callback is not invoked; the timer is disabled, but can be re-enabled by calling the Change method.
+            </summary>
+            <param name="callback">A TimerCallback delegate representing a method to be executed.</param>
+            <param name="state">An object containing information to be used by the callback method, or null.</param>
+            <param name="dueTime">The amount of time to delay before callback is invoked, in milliseconds. Specify Timeout.Infinite to prevent the timer from starting. Specify zero (0) to start the timer immediately.</param>
+            <param name="period">The time interval between invocations of callback, in milliseconds. Specify Timeout.Infinite to disable periodic signaling.</param>
+        </member>
+        <member name="M:System.Threading.Timer.#ctor(System.Threading.TimerCallback,System.Object,System.Int64,System.Int64)">
+            <summary>
+            Initializes a new instance of the Timer class, using 64-bit signed integers to measure time intervals.
+            The delegate specified by the callback parameter is invoked once after dueTime elapses, and thereafter each time the period time interval elapses.
+            If dueTime is zero (0), callback is invoked immediately.If dueTime is Timeout.Infinite, callback is not invoked; the timer is disabled, but can be re-enabled by calling the Change method.
+            </summary>
+            <param name="callback">A TimerCallback delegate representing a method to be executed.</param>
+            <param name="state">An object containing information to be used by the callback method, or null.</param>
+            <param name="dueTime">The amount of time to delay before callback is invoked, in milliseconds. Specify Timeout.Infinite to prevent the timer from starting. Specify zero (0) to start the timer immediately.</param>
+            <param name="period">The time interval between invocations of callback, in milliseconds. Specify Timeout.Infinite to disable periodic signaling.</param>
+        </member>
+        <member name="M:System.Threading.Timer.#ctor(System.Threading.TimerCallback)">
+            <summary>
+            Initializes a new instance of the Timer class with an infinite period and an infinite due time, using the newly created Timer object as the state object.
+            Call this constructor when you want to use the Timer object itself as the state object. After creating the timer, use the Change method to set the interval and due time.
+            This constructor specifies an infinite due time before the first callback and an infinite interval between callbacks, in order to prevent the first callback from occurring before the Timer object is assigned to the state object.
+            </summary>
+            <param name="callback">A TimerCallback delegate representing a method to be executed.</param>
+        </member>
+        <member name="M:System.Threading.Timer.Change(System.Int32,System.Int32)">
+            <summary>
+            Changes the start time and the interval between method invocations for a timer, using 32-bit signed integers to measure time intervals.
+            </summary>
+            <param name="dueTime">The amount of time to delay before the invoking the callback method specified when the Timer was constructed, in milliseconds. Specify Timeout.Infinite to prevent the timer from restarting. Specify zero (0) to restart the timer immediately.</param>
+            <param name="period">The time interval between invocations of the callback method specified when the Timer was constructed, in milliseconds. Specify Timeout.Infinite to disable periodic signaling.</param>
+            <returns>true if the timer was successfully updated; otherwise, false.</returns>
+        </member>
+        <member name="M:System.Threading.Timer.Change(System.TimeSpan,System.TimeSpan)">
+            <summary>
+            Changes the start time and the interval between method invocations for a timer, using TimeSpan values to measure time intervals.
+            </summary>
+            <param name="dueTime">A TimeSpan representing the amount of time to delay before invoking the callback method specified when the Timer was constructed. Specify negative one (-1) milliseconds to prevent the timer from restarting. Specify zero (0) to restart the timer immediately.</param>
+            <param name="period">The time interval between invocations of the callback method specified when the Timer was constructed. Specify negative one (-1) milliseconds to disable periodic signaling.</param>
+            <returns>true if the timer was successfully updated; otherwise, false.</returns>
+        </member>
+        <member name="M:System.Threading.Timer.Change(System.UInt32,System.UInt32)">
+            <summary>
+            Changes the start time and the interval between method invocations for a timer, using 32-bit unsigned integers to measure time intervals.
+            </summary>
+            <param name="dueTime">The amount of time to delay before the invoking the callback method specified when the Timer was constructed, in milliseconds. Specify Timeout.Infinite to prevent the timer from restarting. Specify zero (0) to restart the timer immediately.</param>
+            <param name="period">The time interval between invocations of the callback method specified when the Timer was constructed, in milliseconds. Specify Timeout.Infinite to disable periodic signaling.</param>
+            <returns>true if the timer was successfully updated; otherwise, false.</returns>
+        </member>
+        <member name="M:System.Threading.Timer.Change(System.Int64,System.Int64)">
+            <summary>
+            Changes the start time and the interval between method invocations for a timer, using 64-bit signed integers to measure time intervals.
+            </summary>
+            <param name="dueTime">The amount of time to delay before the invoking the callback method specified when the Timer was constructed, in milliseconds. Specify Timeout.Infinite to prevent the timer from restarting. Specify zero (0) to restart the timer immediately.</param>
+            <param name="period">The time interval between invocations of the callback method specified when the Timer was constructed, in milliseconds. Specify Timeout.Infinite to disable periodic signaling.</param>
+            <returns>true if the timer was successfully updated; otherwise, false.</returns>
+        </member>
+        <member name="M:System.Threading.Timer.Dispose">
+            <summary>
+            Releases all resources used by the current instance of Timer.
+            Callbacks will not be called after Timer is disposed
+            </summary>
+        </member>
+        <member name="M:System.Threading.Thread.Sleep(System.Int32)">
+            <summary>
+            Suspends the current thread for the specified number of milliseconds.
+            Implemented as a loop checking timeout each iteration.
+            Please note maximum 1e7 iterations
+            </summary>
+            <param name="millisecondsTimeout">The number of milliseconds for which the thread is suspended. Should be positive or -1. -1 works the same as 0 (not Infinite)</param>
+        </member>
+        <member name="M:System.Threading.Thread.Sleep(System.TimeSpan)">
+            <summary>
+            Suspends the current thread for the specified anout of time.
+            Implemented as a loop checking timeout each iteration.
+            Please note maximum 1e7 iterations
+            </summary>
+            <param name="timeout">The amount of time for which the thread is suspended. Should be positive or -1. -1 works the same as 0 (not Infinite)</param>
+        </member>
+        <member name="T:System.Threading.Tasks.IPromise">
+            <summary>
+            CommonJS Promise/A interface
+            http://wiki.commonjs.org/wiki/Promises/A
+            </summary>
+        </member>
+        <member name="M:System.Threading.Tasks.IPromise.Then(System.Delegate,System.Delegate,System.Delegate)">
+            <summary>
+            Adds a fulfilledHandler, errorHandler to be called for completion of a promise.
+            </summary>
+            <param name="fulfilledHandler">The fulfilledHandler is called when the promise is fulfilled</param>
+            <param name="errorHandler">The errorHandler is called when a promise fails.</param>
+            <param name="progressHandler"></param>
+        </member>
+        <member name="T:System.Threading.Tasks.PromiseExtensions">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:System.Threading.Tasks.PromiseExtensions.GetAwaiter(System.Threading.Tasks.IPromise)">
+             <summary>
+            
+             </summary>
+             <param name="promise"></param>
+             <returns></returns>
+        </member>
+        <member name="T:System.Threading.Tasks.PromiseException">
+            <summary>
+            This exception is used as the exception for a task created from a promise when the underlying promise fails.
+            </summary>
+        </member>
+        <member name="P:System.Threading.Tasks.PromiseException.Arguments">
+            <summary>
+            Arguments supplied to the promise onError() callback.
+            </summary>
+        </member>
+        <member name="F:System.Threading.Tasks.TaskStatus.Created">
+            <summary>
+            The task has been initialized but has not yet been scheduled.
+            </summary>
+        </member>
+        <member name="F:System.Threading.Tasks.TaskStatus.WaitingForActivation">
+            <summary>
+            The task is waiting to be activated and scheduled internally by the .NET Framework infrastructure.
+            </summary>
+        </member>
+        <member name="F:System.Threading.Tasks.TaskStatus.WaitingToRun">
+            <summary>
+            The task has been scheduled for execution but has not yet begun executing.
+            </summary>
+        </member>
+        <member name="F:System.Threading.Tasks.TaskStatus.Running">
+            <summary>
+            The task is running but has not yet completed.
+            </summary>
+        </member>
+        <member name="F:System.Threading.Tasks.TaskStatus.WaitingForChildrenToComplete">
+            <summary>
+            The task has finished executing and is implicitly waiting for
+            attached child tasks to complete.
+            </summary>
+        </member>
+        <member name="F:System.Threading.Tasks.TaskStatus.RanToCompletion">
+            <summary>
+            The task completed execution successfully.
+            </summary>
+        </member>
+        <member name="F:System.Threading.Tasks.TaskStatus.Canceled">
+            <summary>
+            The task acknowledged cancellation by throwing an OperationCanceledException with its own CancellationToken
+            while the token was in signaled state, or the task's CancellationToken was already signaled before the
+            task started executing.
+            </summary>
+        </member>
+        <member name="F:System.Threading.Tasks.TaskStatus.Faulted">
+            <summary>
+            The task completed due to an unhandled exception.
+            </summary>
+        </member>
+        <member name="T:System.Uri">
+            <summary>
+            Provides an object representation of a uniform resource identifier (URI) and easy access to the parts of the URI.
+            </summary>
+        </member>
         <member name="M:System.Array.IndexOf(System.String)">
             <summary>
             The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
@@ -5197,16 +7095,6 @@
         <member name="F:System.DayOfWeek.Saturday">
             <summary>
             Indicates Saturday.
-            </summary>
-        </member>
-        <member name="P:System.Text.StringBuilder.Length">
-            <summary>
-            Gets or sets the length of the current StringBuilder object.
-            </summary>
-        </member>
-        <member name="T:System.Error">
-            <summary>
-            The Error constructor creates an error object. Instances of Error objects are thrown when runtime errors occur. The Error object can also be used as a base objects for user-defined exceptions. See below for standard built-in error types.
             </summary>
         </member>
         <member name="T:System.Decimal">
@@ -5309,6 +7197,13 @@
             the grouping size of the fraction part of the number
             </summary>
         </member>
+        <member name="T:System.ComponentModel.BrowsableAttribute">
+            <summary>
+            This attribute marks a field, property, event or method as
+            "browsable", i.e. present in the type descriptor associated with
+            the type.
+            </summary>
+        </member>
         <member name="T:System.LocaleOptions">
             <summary>
             An object with some or all of the following properties:
@@ -5394,17 +7289,25 @@
             
              </summary>
         </member>
-        <member name="M:System.Date.#ctor(System.Double)">
+        <member name="P:System.Exception.Data">
             <summary>
-            Double value representing the number of milliseconds since 1 January 1970 00:00:00 UTC (Unix Epoch).
+            Gets a collection of key/value pairs that provide additional user-defined information about the exception.
             </summary>
-            <param name="value">The numberof milliseconds since 1 January 1970 00:00:00 UTC (Unix Epoch)</param>
         </member>
-        <member name="M:System.Date.#ctor(System.String)">
+        <member name="P:System.Exception.Message">
             <summary>
-            String value representing a date. The string should be in a format recognized by the Date.parse() method (IETF-compliant RFC 2822 timestamps and also a version of ISO8601).
+            Gets a message that describes the current exception.
             </summary>
-            <param name="dateString"></param>
+        </member>
+        <member name="P:System.Exception.InnerException">
+            <summary>
+            Gets the Exception instance that caused the current exception.
+            </summary>
+        </member>
+        <member name="P:System.Exception.StackTrace">
+            <summary>
+            Gets a string representation of the immediate frames on the call stack.
+            </summary>
         </member>
         <member name="P:System.AttributeUsageAttribute.AllowMultiple">
             <summary>Gets or sets a Boolean value indicating whether more than one instance of the indicated attribute can be specified for a single program element.</summary>
@@ -5421,13 +7324,6 @@
         <member name="T:System.Runtime.CompilerServices.DummyTypeUsedToAddAttributeToDefaultValueTypeConstructor">
             <summary>
             If a constructor for a value type takes an instance of this type as a parameter, any attribute applied to that constructor will instead be applied to the default (undeclarable) constructor.
-            </summary>
-        </member>
-        <member name="T:System.ComponentModel.BrowsableAttribute">
-            <summary>
-            This attribute marks a field, property, event or method as
-            "browsable", i.e. present in the type descriptor associated with
-            the type.
             </summary>
         </member>
         <member name="T:System.String">
@@ -5526,6 +7422,13 @@
             <param name="value">The string to compare to this instance.</param>
             <returns>true if the value of the value parameter is the same as this string; otherwise, false.</returns>
         </member>
+        <member name="M:System.String.Concat(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Concatenates the members of a constructed IEnumerable collection of type String.
+            </summary>
+            <param name="values">A collection object that implements IEnumerable and whose generic type argument is String.</param>
+            <returns>The concatenated strings in values, or String.Empty if values is an empty IEnumerable(Of String).</returns>
+        </member>
         <member name="M:System.String.Concat(System.String,System.String)">
             <summary>
             The concat() method combines the text of two or more strings and returns a new string.
@@ -5560,6 +7463,13 @@
             <param name="strings">Strings to concatenate to this string.</param>
             <returns></returns>
         </member>
+        <member name="M:System.String.Concat(System.Object)">
+            <summary>
+            Creates the string representation of a specified object.
+            </summary>
+            <param name="arg0">The object to represent, or null.</param>
+            <returns>The string representation of the value of arg0, or String.Empty if arg0 is null.</returns>
+        </member>
         <member name="M:System.String.Concat(System.Object,System.Object)">
             <summary>
             The concat() method combines the text of two or more strings and returns a new string.
@@ -5593,6 +7503,13 @@
             </summary>
             <param name="objects">Strings to concatenate to this string.</param>
             <returns></returns>
+        </member>
+        <member name="M:System.String.Concat``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Concatenates the members of a constructed generic IEnumerable collection.
+            </summary>
+            <param name="values">A collection object that implements generic IEnumerable.</param>
+            <returns>The concatenated members in values.</returns>
         </member>
         <member name="M:System.String.Compare(System.String,System.String)">
             <summary>
@@ -5742,7 +7659,7 @@
             <param name="options">An object with some or all of the following properties:</param>
             <returns></returns>
         </member>
-        <member name="M:System.String.Match(System.Text.RegularExpressions.Regex)">
+        <member name="M:System.String.Match(Bridge.Text.RegularExpressions.Regex)">
             <summary>
             The match() method retrieves the matches when matching a string against a regular expression.
             </summary>
@@ -5756,7 +7673,7 @@
             <param name="Regex">A regular expression object. If a non-Regex object obj is passed, it is implicitly converted to a Regex by using new Regex(obj).</param>
             <returns></returns>
         </member>
-        <member name="M:System.String.Replace(System.Text.RegularExpressions.Regex,System.String)">
+        <member name="M:System.String.Replace(Bridge.Text.RegularExpressions.Regex,System.String)">
             <summary>
             The replace() method returns a new string with some or all matches of a pattern replaced by a replacement.  The pattern can be a string or a Regex, and the replacement can be a string or a function to be called for each match.
             </summary>
@@ -5764,7 +7681,7 @@
             <param name="newSubStr">The String that replaces the substring received from parameter #1. A number of special replacement patterns are supported; see the "Specifying a string as a parameter" section below.</param>
             <returns></returns>
         </member>
-        <member name="M:System.String.Replace(System.Text.RegularExpressions.Regex,System.Delegate)">
+        <member name="M:System.String.Replace(Bridge.Text.RegularExpressions.Regex,System.Delegate)">
             <summary>
             The replace() method returns a new string with some or all matches of a pattern replaced by a replacement.  The pattern can be a string or a Regex, and the replacement can be a string or a function to be called for each match.
             </summary>
@@ -5772,7 +7689,7 @@
             <param name="callback"></param>
             <returns></returns>
         </member>
-        <member name="M:System.String.Replace(System.Text.RegularExpressions.Regex,System.Func{System.String,System.String})">
+        <member name="M:System.String.Replace(Bridge.Text.RegularExpressions.Regex,System.Func{System.String,System.String})">
             <summary>
             The replace() method returns a new string with some or all matches of a pattern replaced by a replacement.  The pattern can be a string or a Regex, and the replacement can be a string or a function to be called for each match.
             </summary>
@@ -5780,7 +7697,7 @@
             <param name="callback"></param>
             <returns></returns>
         </member>
-        <member name="M:System.String.Replace(System.Text.RegularExpressions.Regex,System.Func{System.String,System.Int32,System.String})">
+        <member name="M:System.String.Replace(Bridge.Text.RegularExpressions.Regex,System.Func{System.String,System.Int32,System.String})">
             <summary>
             The replace() method returns a new string with some or all matches of a pattern replaced by a replacement.  The pattern can be a string or a Regex, and the replacement can be a string or a function to be called for each match.
             </summary>
@@ -5788,7 +7705,7 @@
             <param name="callback"></param>
             <returns></returns>
         </member>
-        <member name="M:System.String.Replace(System.Text.RegularExpressions.Regex,System.Func{System.String,System.Int32,System.String,System.String})">
+        <member name="M:System.String.Replace(Bridge.Text.RegularExpressions.Regex,System.Func{System.String,System.Int32,System.String,System.String})">
             <summary>
             The replace() method returns a new string with some or all matches of a pattern replaced by a replacement.  The pattern can be a string or a Regex, and the replacement can be a string or a function to be called for each match.
             </summary>
@@ -5836,7 +7753,7 @@
             <param name="callback"></param>
             <returns></returns>
         </member>
-        <member name="M:System.String.Search(System.Text.RegularExpressions.Regex)">
+        <member name="M:System.String.Search(Bridge.Text.RegularExpressions.Regex)">
             <summary>
             The search() method executes a search for a match between a regular expression and this String object.
             </summary>
@@ -6032,62 +7949,6 @@
              Returns:
                  A copy of format in which the format items have been replaced by the string representations
                  of arg0, arg1, and arg2.
-        </member>
-        <member name="T:System.Threading.Tasks.IPromise">
-            <summary>
-            CommonJS Promise/A interface
-            http://wiki.commonjs.org/wiki/Promises/A
-            </summary>
-        </member>
-        <member name="M:System.Threading.Tasks.IPromise.Then(System.Delegate,System.Delegate)">
-            <summary>
-            Adds a fulfilledHandler, errorHandler to be called for completion of a promise.
-            </summary>
-            <param name="fulfilledHandler">The fulfilledHandler is called when the promise is fulfilled</param>
-            <param name="errorHandler">The errorHandler is called when a promise fails.</param>
-        </member>
-        <member name="F:System.Threading.Tasks.TaskStatus.Created">
-            <summary>
-            The task has been initialized but has not yet been scheduled.
-            </summary>
-        </member>
-        <member name="F:System.Threading.Tasks.TaskStatus.WaitingForActivation">
-            <summary>
-            The task is waiting to be activated and scheduled internally by the .NET Framework infrastructure.
-            </summary>
-        </member>
-        <member name="F:System.Threading.Tasks.TaskStatus.WaitingToRun">
-            <summary>
-            The task has been scheduled for execution but has not yet begun executing.
-            </summary>
-        </member>
-        <member name="F:System.Threading.Tasks.TaskStatus.Running">
-            <summary>
-            The task is running but has not yet completed.
-            </summary>
-        </member>
-        <member name="F:System.Threading.Tasks.TaskStatus.WaitingForChildrenToComplete">
-            <summary>
-            The task has finished executing and is implicitly waiting for
-            attached child tasks to complete.
-            </summary>
-        </member>
-        <member name="F:System.Threading.Tasks.TaskStatus.RanToCompletion">
-            <summary>
-            The task completed execution successfully.
-            </summary>
-        </member>
-        <member name="F:System.Threading.Tasks.TaskStatus.Canceled">
-            <summary>
-            The task acknowledged cancellation by throwing an OperationCanceledException with its own CancellationToken
-            while the token was in signaled state, or the task's CancellationToken was already signaled before the
-            task started executing.
-            </summary>
-        </member>
-        <member name="F:System.Threading.Tasks.TaskStatus.Faulted">
-            <summary>
-            The task completed due to an unhandled exception.
-            </summary>
         </member>
     </members>
 </doc>

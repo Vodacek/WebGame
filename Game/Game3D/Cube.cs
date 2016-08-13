@@ -9,7 +9,7 @@ namespace Game3D
 {
     public class Cube
     {
-        public CanvasElement canvas;
+        public HTMLCanvasElement canvas;
         public WebGLRenderingContext gl;
         public WebGLProgram program;
         public WebGLTexture[] textures = new WebGLTexture[5];
@@ -66,7 +66,7 @@ namespace Game3D
 
         public WebGLShader GetShader(WebGLRenderingContext gl, string id)
         {
-            var shaderScript = Document.GetElementById(id).As<ScriptElement>();
+            var shaderScript = Document.GetElementById(id).As<HTMLScriptElement>();
 
             if (shaderScript == null)
             {
@@ -158,7 +158,7 @@ namespace Game3D
             this.program = shaderProgram;
         }
 
-        public void HandleLoadedTexture(ImageElement image)
+        public void HandleLoadedTexture(HTMLImageElement image)
         {
             gl.PixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
             gl.BindTexture(gl.TEXTURE_2D, this.textures[0]);
@@ -173,7 +173,7 @@ namespace Game3D
         {
             this.textures[0] = gl.CreateTexture();
 
-            var textureImageElement = new ImageElement();
+            var textureImageElement = new HTMLImageElement();
 
             textureImageElement.OnLoad = (ev) =>
             {
