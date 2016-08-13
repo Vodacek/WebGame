@@ -2,7 +2,7 @@
 
 "use strict";
 
-Bridge.define('Cube3D.Cube', {
+Bridge.define('Game3D.Cube', {
     canvas: null,
     gl: null,
     program: null,
@@ -44,7 +44,7 @@ Bridge.define('Cube3D.Cube', {
     config: {
         init: function () {
             this.textures = Bridge.Array.init(5, null);
-            this.test = new Bridge.List$1(Cube3D.Test)();
+            this.test = new Bridge.List$1(Game3D.Test)();
             this.mvMatrix = Bridge.get(mat4).create();
             this.mvMatrixStack = [];
             this.pMatrix = Bridge.get(mat4).create();
@@ -93,7 +93,7 @@ Bridge.define('Cube3D.Cube', {
         return shader;
     },
     initShaders: function () {
-        this.test.add(new Cube3D.Test());
+        this.test.add(new Game3D.Test());
 
         var fragmentShader = this.getShader(this.gl, "shader-fs");
         var vertexShader = this.getShader(this.gl, "shader-vs");
@@ -299,7 +299,7 @@ Bridge.define('Cube3D.Cube', {
         this.lastTime = timeNow;
     },
     tick: function () {
-        Bridge.get(Cube3D.App).initSettings(this);
+        Bridge.get(Game3D.App).initSettings(this);
         this.handleKeys();
         this.drawScene();
         this.animate();
@@ -307,12 +307,12 @@ Bridge.define('Cube3D.Cube', {
     }
 });
 
-Bridge.define('Cube3D.Test', {
+Bridge.define('Game3D.Test', {
     x: 0,
     y: 0
 });
 
-Bridge.define('Cube3D.App', {
+Bridge.define('Game3D.App', {
     statics: {
         config: {
             init: function () {
@@ -320,15 +320,18 @@ Bridge.define('Cube3D.App', {
             }
         },
         main: function () {
-            Bridge.get(Cube3D.App).initCube("canvas1");
+            var model = new Game3D.Rendering.Model("data/model.txt");
+            model.load();
+
+            Bridge.get(Game3D.App).initCube("canvas1");
         },
         initCube: function (canvasId) {
-            var cube = new Cube3D.Cube();
+            var cube = new Game3D.Cube();
 
-            Bridge.get(Cube3D.App).initSettings(cube);
+            Bridge.get(Game3D.App).initSettings(cube);
 
-            cube.canvas = Bridge.get(Cube3D.App).getCanvasEl(canvasId);
-            cube.gl = Bridge.get(Cube3D.App).create3DContext(cube.canvas);
+            cube.canvas = Bridge.get(Game3D.App).getCanvasEl(canvasId);
+            cube.gl = Bridge.get(Game3D.App).create3DContext(cube.canvas);
 
             if (cube.gl !== null) {
                 cube.initShaders();
@@ -340,7 +343,7 @@ Bridge.define('Cube3D.App', {
                 Bridge.get(document).addEventListener("keyup", Bridge.fn.bind(cube, cube.handleKeyUp));
             }
             else  {
-                Bridge.get(Cube3D.App).showError(cube.canvas, "<b>Either the browser doesn't support WebGL or it is disabled.<br>Please follow <a href=\"http://get.webgl.com\">Get WebGL</a>.</b>");
+                Bridge.get(Game3D.App).showError(cube.canvas, "<b>Either the browser doesn't support WebGL or it is disabled.<br>Please follow <a href=\"http://get.webgl.com\">Get WebGL</a>.</b>");
             }
         },
         getCanvasEl: function (id) {

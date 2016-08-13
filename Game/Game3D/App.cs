@@ -1,6 +1,7 @@
 ﻿using Bridge;
 using Bridge.Html5;
 using Bridge.WebGL;
+using Game3D.Rendering;
 using System;
 
 namespace Game3D
@@ -10,6 +11,9 @@ namespace Game3D
         [Ready]
         public static void Main()
         {
+            Model model = new Model("data/model.txt");
+            model.Load();
+
             App.InitCube("canvas1");
         }
 

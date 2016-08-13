@@ -59,17 +59,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="crate.gif" />
-    <Content Include="js\glMatrix-0.9.5.min.js" />
     <Content Include="index.html" />
-    <Content Include="js\bridge.js" />
-    <Content Include="js\bridge.min.js" />
-    <Content Include="js\cube3D.js" />
-    <Content Include="js\cube3D.min.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="js\bridge.js" />
+    <Content Include="js\bridge.min.js" />
+    <Content Include="js\game3D.game.js" />
+    <Content Include="js\game3D.game.min.js" />
+    <Content Include="js\game3D.helpers.js" />
+    <Content Include="js\game3D.helpers.min.js" />
+    <Content Include="js\game3D.js" />
+    <Content Include="js\game3D.min.js" />
+    <Content Include="js\game3D.rendering.js" />
+    <Content Include="js\game3D.rendering.min.js" />
     <Content Include="web.config" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
